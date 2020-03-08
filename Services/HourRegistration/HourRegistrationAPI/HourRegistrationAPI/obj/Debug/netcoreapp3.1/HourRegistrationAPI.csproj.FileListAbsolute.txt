@@ -1,0 +1,10 @@
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\HourRegistrationAPI.exe
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.csprojAssemblyReference.cache
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\staticwebassets\HourRegistrationAPI.StaticWebAssets.Manifest.cache
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\staticwebassets\HourRegistrationAPI.StaticWebAssets.xml
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.AssemblyInfoInputs.cache
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.AssemblyInfo.cs
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.RazorTargetAssemblyInfo.cache
