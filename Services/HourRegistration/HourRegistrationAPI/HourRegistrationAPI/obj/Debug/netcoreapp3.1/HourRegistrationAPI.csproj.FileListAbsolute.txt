@@ -8,3 +8,17 @@ C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistra
 C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.AssemblyInfoInputs.cache
 C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.AssemblyInfo.cs
 C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.RazorTargetAssemblyInfo.cache
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\HourRegistrationAPI.deps.json
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\HourRegistrationAPI.runtimeconfig.json
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\HourRegistrationAPI.runtimeconfig.dev.json
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\HourRegistrationAPI.dll
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\HourRegistrationAPI.pdb
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\Cassandra.dll
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\System.Management.dll
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Management.dll
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.csproj.CopyComplete
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.dll
+C:\Users\eanva\Documents\UurtjeFactuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.pdb

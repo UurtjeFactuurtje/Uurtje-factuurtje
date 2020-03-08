@@ -8,3 +8,6 @@
 *.testlog
 *.manifest
 Services/HourRegistration/HourRegistrationAPI/.vs/HourRegistrationAPI/v16/Server/sqlite3/db.lock
+*.ide
+*.ide
+Services/HourRegistration/HourRegistrationAPI/.vs/HourRegistrationAPI/v16/.suo
