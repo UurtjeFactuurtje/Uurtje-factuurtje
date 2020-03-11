@@ -38,9 +38,13 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "CassandraCSharpDriver": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.13.0, )"
+              "version": "[3.1.1, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[5.1.2, )"
             }
           },
           "imports": [
