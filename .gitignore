@@ -11,3 +11,11 @@ Services/HourRegistration/HourRegistrationAPI/.vs/HourRegistrationAPI/v16/Server
 *.ide
 *.ide
 Services/HourRegistration/HourRegistrationAPI/.vs/HourRegistrationAPI/v16/.suo
+*.dll
+Services/HourRegistration/HourRegistrationAPI/.vs/HourRegistrationAPI/v16/.suo
+*.ide-wal
+*.ide
+Services/HourRegistration/HourRegistrationAPI/.vs/HourRegistrationAPI/DesignTimeBuild/.dtbcache
+*.ide-wal
+*.ide-shm
+*.ide
