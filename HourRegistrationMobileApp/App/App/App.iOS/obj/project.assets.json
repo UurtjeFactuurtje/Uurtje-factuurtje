@@ -1016,24 +1016,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\royti\\.nuget\\packages\\": {},
+    "C:\\Users\\eanva\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\App.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\App.iOS.csproj",
       "projectName": "App.iOS",
-      "projectPath": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\App.iOS.csproj",
-      "packagesPath": "C:\\Users\\royti\\.nuget\\packages\\",
-      "outputPath": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\obj\\",
+      "projectPath": "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\App.iOS.csproj",
+      "packagesPath": "C:\\Users\\eanva\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\royti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\eanva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1047,8 +1047,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj": {
-              "projectPath": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj"
+            "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj": {
+              "projectPath": "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj"
             }
           }
         }
