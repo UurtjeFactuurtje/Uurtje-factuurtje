@@ -1,7 +1,6 @@
 steps:
 - bash: |
     cd Services
-    echo $(projectPath)
     cd $(projectPath)
     docker build \
         -t $(registryServerName)/$(imageName):$(imageTag) \
