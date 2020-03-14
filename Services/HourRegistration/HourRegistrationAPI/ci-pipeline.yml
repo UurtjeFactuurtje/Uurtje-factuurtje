@@ -20,4 +20,4 @@ variables:
   # define 3 more variables: registryName, registryLogin and registryPassword in the build pipeline in UI
 
 steps:
-- template: ../common/ci-steps-template.yml
+- template: ../../common/ci-steps-template.yml
