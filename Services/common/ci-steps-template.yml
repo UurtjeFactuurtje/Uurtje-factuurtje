@@ -1,6 +1,7 @@
 steps:
 - bash: |
     cd Services
+    cd $projectPath
     docker build \
         -t $(registryServerName)/$(imageName):$(imageTag) \
         .
@@ -23,16 +24,16 @@ steps:
   inputs:
     helmVersionToInstall: $(helmVersion)
 - bash: |
-    cd $(projectName)
+    cd $(projectPath)
     helm package \
         --version $(helmChartVersion) \
         --app-version $(imageTag) \
-        charts/$(projectName)
+        charts/$(projectPath)
   failOnStderr: true
   displayName: 'helm package'
 - bash: |
-    cd $(projectName)
-    chartPackage=$(ls $(projectName)-*.tgz)
+    cd $(projectPath)
+    chartPackage=$(ls $(projectPath)-*.tgz)
     az acr helm push \
         -n $(registryName) \
         -u $(registryLogin) \
