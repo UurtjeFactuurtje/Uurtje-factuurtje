@@ -1,7 +1,7 @@
 steps:
 - bash: |
-    cd Services/$(projectName)
-    docker build test
+    cd $(projectName)
+    docker build 
   failOnStderr: true
   displayName: 'docker build'
 - bash: |
