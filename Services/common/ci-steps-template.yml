@@ -1,7 +1,9 @@
 steps:
 - bash: |
-    cd $(projectName)
-    docker build 
+    cd Services
+    docker build \
+        -t $(registryServerName)/$(imageName):$(imageTag) \
+        .
   failOnStderr: true
   displayName: 'docker build'
 - bash: |
