@@ -349,3 +349,5 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 Services/HourRegistration/HourRegistrationAPI/HourRegistrationAPI/obj/HourRegistrationAPI.csproj.nuget.g.props
+Services/HourRegistration/HourRegistrationAPI/HourRegistrationAPI/obj/project.assets.json
+Services/HourRegistration/HourRegistrationAPI/HourRegistrationAPI/obj/HourRegistrationAPI.csproj.nuget.dgspec.json
