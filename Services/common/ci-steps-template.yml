@@ -24,6 +24,7 @@ steps:
   inputs:
     helmVersionToInstall: $(helmVersion)
 - bash: |
+    cd Services
     cd $(projectPath)
     helm package \
         --version $(helmChartVersion) \
@@ -32,6 +33,7 @@ steps:
   failOnStderr: true
   displayName: 'helm package'
 - bash: |
+    cd Services
     cd $(projectPath)
     chartPackage=$(ls $(projectPath)-*.tgz)
     az acr helm push \
