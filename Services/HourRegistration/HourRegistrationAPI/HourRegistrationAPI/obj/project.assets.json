@@ -335,6 +335,16 @@
           "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets": {}
         }
       },
+      "Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.1.1"
+        },
+        "build": {
+          "build/Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets.props": {},
+          "build/Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets.targets": {}
+        }
+      },
       "Microsoft.VisualStudio.Web.CodeGeneration/3.1.1": {
         "type": "package",
         "dependencies": {
@@ -2193,6 +2203,24 @@
         "tools/zh-Hant/Microsoft.VisualStudio.Containers.Tools.Common.resources.dll",
         "tools/zh-Hant/Microsoft.VisualStudio.Containers.Tools.Shared.resources.dll",
         "tools/zh-Hant/Microsoft.VisualStudio.Containers.Tools.Tasks.resources.dll"
+      ]
+    },
+    "Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets/1.0.0": {
+      "sha512": "+4EfNogqVve7NdgXZnddOw2g9n8P4keH/2Pzy5PbPcR/RpluJM0P/elF2u+pHfQ1tvq3lrcQfdNwD4loeY79FQ==",
+      "type": "package",
+      "path": "microsoft.visualstudio.azure.kubernetes.tools.targets/1.0.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "EULA.md",
+        "build/Helm.props",
+        "build/Helm.targets",
+        "build/Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets.props",
+        "build/Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets.targets",
+        "microsoft.visualstudio.azure.kubernetes.tools.targets.1.0.0.nupkg.sha512",
+        "microsoft.visualstudio.azure.kubernetes.tools.targets.nuspec",
+        "tools/Microsoft.VisualStudio.Kubernetes.Tools.Tasks.dll"
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/3.1.1": {
@@ -6160,28 +6188,29 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.9.10",
+      "Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets >= 1.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.1",
       "RabbitMQ.Client >= 5.1.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\royti\\.nuget\\packages\\": {},
+    "C:\\Users\\eanva\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj",
+      "projectUniqueName": "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj",
       "projectName": "HourRegistrationAPI",
-      "projectPath": "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj",
-      "packagesPath": "C:\\Users\\royti\\.nuget\\packages\\",
-      "outputPath": "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\obj\\",
+      "projectPath": "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj",
+      "packagesPath": "C:\\Users\\eanva\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\royti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\eanva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -6209,6 +6238,10 @@
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
             "target": "Package",
             "version": "[1.9.10, )"
+          },
+          "Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
