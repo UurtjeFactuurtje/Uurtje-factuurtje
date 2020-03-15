@@ -29,13 +29,13 @@ steps:
     helm package \
         --version $(helmChartVersion) \
         --app-version $(imageTag) \
-        charts/$(projectPath)
+        charts/$(projectName)
   failOnStderr: true
   displayName: 'helm package'
 - bash: |
     cd Services
     cd $(projectPath)
-    chartPackage=$(ls $(projectPath)-*.tgz)
+    chartPackage=$(ls $(projectName)-*.tgz)
     az acr helm push \
         -n $(registryName) \
         -u $(registryLogin) \
