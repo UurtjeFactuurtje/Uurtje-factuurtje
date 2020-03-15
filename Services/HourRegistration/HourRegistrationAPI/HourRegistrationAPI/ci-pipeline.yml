@@ -18,6 +18,7 @@ variables:
   parameters:
       projectPath: HourRegistration/HourRegistrationAPI/HourRegistrationAPI
       projectName: HourRegistrationAPI
+      imageName: hourregistration
   # define 3 more variables: registryName, registryLogin and registryPassword in the build pipeline in UI
 
 steps:

@@ -6,6 +6,6 @@ variables:
   registryServerName: '$(registryName).azurecr.io'
   projectName: ${{ parameters.projectName }}
   projectPath: ${{ parameters.projectPath }}
-  imageName: ${{ parameters.projectName }}
+  imageName: ${{ parameters.imageName }}
   imageTag: $(build.buildId)
   helmChartVersion: $(build.buildId)
