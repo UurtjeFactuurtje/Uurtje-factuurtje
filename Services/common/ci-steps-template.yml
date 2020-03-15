@@ -24,7 +24,7 @@ steps:
   inputs:
     helmVersionToInstall: $(helmVersion)
 - bash: |
-    cd /Services
+    cd Services
     cd $(projectPath)
     helm package \
         --version $(helmChartVersion) \
