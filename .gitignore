@@ -351,3 +351,6 @@ MigrationBackup/
 Services/HourRegistration/HourRegistrationAPI/HourRegistrationAPI/obj/HourRegistrationAPI.csproj.nuget.g.props
 Services/HourRegistration/HourRegistrationAPI/HourRegistrationAPI/obj/project.assets.json
 Services/HourRegistration/HourRegistrationAPI/HourRegistrationAPI/obj/HourRegistrationAPI.csproj.nuget.dgspec.json
+Services/HourRegistration/HourRegistrationAPI/HourRegistrationAPI/obj/HourRegistrationAPI.csproj.nuget.dgspec.json
+Services/HourRegistration/HourRegistrationAPI/HourRegistrationAPI/obj/HourRegistrationAPI.csproj.nuget.g.props
+Services/HourRegistration/HourRegistrationAPI/HourRegistrationAPI/obj/project.assets.json
