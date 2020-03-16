@@ -6,7 +6,7 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
     <ApplicationIcon />
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <StartupObject />
   </PropertyGroup>
 
