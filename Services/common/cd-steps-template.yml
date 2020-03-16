@@ -24,8 +24,7 @@ steps:
     helm upgrade \
         --namespace $(k8sNamespace) \
         --install \
-        --wait \
-        --auto-rollback \
+        --force \
         --version $helmChartVersion \
         --set image.repository=$(registryServerName)/$(imageName) \
         --set ingress.enabled=false \
