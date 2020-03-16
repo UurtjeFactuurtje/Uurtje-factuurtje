@@ -23,8 +23,9 @@ steps:
     helmChartVersion=$(jq .helmChartVersion $(pipeline.workspace)/ci-pipeline/build-artifact/variables.json -r)
     helm upgrade \
         --namespace $(k8sNamespace) \
-        --install \
         --force \
+        --install \
+        --wait \
         --version $helmChartVersion \
         --set image.repository=$(registryServerName)/$(imageName) \
         --set ingress.enabled=false \
