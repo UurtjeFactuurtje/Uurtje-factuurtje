@@ -29,7 +29,7 @@ steps:
     helm package \
         --version $(helmChartVersion) \
         --app-version $(imageTag) \
-        charts/$(imageName)
+        charts/$(projectName)
   failOnStderr: true
   displayName: 'helm package'
 - bash: |
