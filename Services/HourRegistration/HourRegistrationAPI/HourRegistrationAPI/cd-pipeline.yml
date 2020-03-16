@@ -12,7 +12,7 @@ variables:
 resources: 
   pipelines:
   - pipeline: ci-pipeline
-    source: HourRegistration-ci
+    source: HourRegistration-CI
     trigger:
       enabled: true
       branches:
