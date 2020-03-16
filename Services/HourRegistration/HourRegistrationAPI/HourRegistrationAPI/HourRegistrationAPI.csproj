@@ -7,7 +7,7 @@
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
     <ApplicationIcon />
     <OutputType>Exe</OutputType>
-    <StartupObject />
+    <StartupObject>HourRegistrationAPI.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
