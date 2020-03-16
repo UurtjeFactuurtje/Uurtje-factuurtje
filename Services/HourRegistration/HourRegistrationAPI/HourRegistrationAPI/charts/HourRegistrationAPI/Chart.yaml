@@ -1,4 +1,4 @@
-apiVersion: v2
+apiVersion: v1
 description: HourRegistration service 
 name: hourregistration
 version: v0.4.0
