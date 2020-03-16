@@ -25,6 +25,7 @@ steps:
         --namespace $(k8sNamespace) \
         --install \
         --wait \
+        --force \
         --version $helmChartVersion \
         --set image.repository=$(registryServerName)/$(imageName) \
         --set ingress.enabled=false \
