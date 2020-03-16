@@ -26,9 +26,9 @@ steps:
         --install \
         --wait \
         --version $helmChartVersion \
-        --set image.repository=$(registryServerName)/$(projectName) \
+        --set image.repository=$(registryServerName)/$(imageName) \
         --set ingress.enabled=false \
-        $(projectName) \
-        $(registryName)/$(projectName)
+        $(imageName) \
+        $(registryName)/$(imageName)
   failOnStderr: true
   displayName: 'deploy helm chart'
