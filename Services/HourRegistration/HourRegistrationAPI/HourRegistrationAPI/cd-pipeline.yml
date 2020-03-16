@@ -25,7 +25,7 @@ stages:
   jobs:
   - deployment: development
     variables:
-      k8sNamespace: 'uurtjefactuurtje'
+      k8sNamespace: 'uurtje-factuurtje'
       # define 5 more variables: aks, rg, aksSpId, aksSpSecret and aksSpTenantId in the Azure pipeline UI definition
     displayName: deploy helm chart into AKS
     pool:
