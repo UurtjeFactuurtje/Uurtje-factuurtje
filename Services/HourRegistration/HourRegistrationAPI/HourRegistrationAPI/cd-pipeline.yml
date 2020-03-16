@@ -1,0 +1,25 @@
+trigger:
+  batch: true
+  branches:
+    include: 
+    - '*'
+  paths:
+    include: 
+    - Services/HourRegistration/HourRegistrationAPI/HourRegistrationAPI/
+    - Services/common/ci-steps-template.yml
+    
+pr: none
+
+pool:
+  vmImage: 'ubuntu-16.04'
+
+variables:
+- template: ../../../common/ci-vars-template.yml
+  parameters:
+      projectPath: HourRegistration/HourRegistrationAPI/HourRegistrationAPI
+      projectName: HourRegistrationAPI
+      imageName: hourregistration
+  # define 3 more variables: registryName, registryLogin and registryPassword in the build pipeline in UI
+
+steps:
+- template: ../../../common/ci-steps-template.yml
