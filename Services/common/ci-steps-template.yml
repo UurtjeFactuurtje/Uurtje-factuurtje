@@ -13,7 +13,7 @@ steps:
   condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
   displayName: 'docker login'
 - bash: |
-    docker tag $(imageName) $(registryServerName)/$(imageName):$(imageTag)
+    # docker tag $(imageName) $(registryServerName)/$(imageName):$(imageTag)
     docker push $(registryServerName)/$(imageName):$(imageTag)
   failOnStderr: true
   condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))

@@ -6,7 +6,7 @@ variables:
   parameters:
       projectPath: HourRegistration/HourRegistrationAPI/HourRegistrationAPI
       projectName: HourRegistrationAPI
-      imageName: hourregistrationapi
+      imageName: hourregistration
   # define 3 more variables: registryName, registryLogin and registryPassword in the Azure pipeline UI definition
 
 resources: 
