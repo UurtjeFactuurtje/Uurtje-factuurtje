@@ -6,5 +6,5 @@ service:
   internalPort: 80
   externalPort: 80
 ingress:
-  enabled: false
+  enabled: true
   basedomain: aksuurtjefactuurtje-dns-c91b824d.hcp.centralus.azmk8s.io
