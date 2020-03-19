@@ -3,9 +3,13 @@ version: '3.4'
 services:
   hourregistrationapi:
     image: ${DOCKER_REGISTRY-}hourregistrationapi
+    ports:
+    - "80:80"
+    - "443:443"
     build:
       context: .
       dockerfile: HourRegistrationAPI/Dockerfile
+
 
   rabbitmq:
     image: rabbitmq:3-management
