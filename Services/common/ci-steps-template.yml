@@ -1,10 +1,12 @@
 steps:
-- task: Docker@2
-  displayName: Docker build
-  inputs:
-    repository: $(registryServerName)/$(imageName)
-    command: build
-    Dockerfile: Services/$(projectPath)/Dockerfile
+- bash: |
+    cd Services
+    cd $(projectPath)
+    docker build \
+        -t $(registryServerName)/$(imageName):$(imageTag) \
+        .
+  failOnStderr: true
+  displayName: 'docker build'
 - bash: |
     echo $(registryPassword) | docker login \
         $(registryServerName) \
