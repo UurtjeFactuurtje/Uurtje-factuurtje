@@ -26,6 +26,7 @@ steps:
         --force \
         --install \
         --wait \
+        --set controller.service.omitClusterIP=true \
         --version $helmChartVersion \
         --set image.repository=$(registryServerName)/$(imageName) \
         --set ingress.enabled=false \
