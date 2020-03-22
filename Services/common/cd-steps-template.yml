@@ -24,7 +24,7 @@ steps:
     helm upgrade \
         --namespace $(k8sNamespace) \
         --install \
-        --force
+        --force \
         --wait \
         --version $helmChartVersion \
         --set image.repository=$(registryServerName)/$(imageName) \
