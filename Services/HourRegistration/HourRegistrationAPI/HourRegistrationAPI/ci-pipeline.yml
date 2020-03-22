@@ -23,9 +23,3 @@ variables:
 
 steps:
 - template: ../../../common/ci-steps-template.yml
-
-- task: KubernetesManifest@0
-  inputs:
-    action: 'bake'
-    renderType: 'kompose'
-    dockerComposeFile: '../HourRegistrationAPI/docker-compose.yml'
