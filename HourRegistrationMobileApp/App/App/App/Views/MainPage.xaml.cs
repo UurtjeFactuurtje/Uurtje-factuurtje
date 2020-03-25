@@ -17,6 +17,7 @@ namespace App.Views
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
         public MainPage()
         {
+
             InitializeComponent();
 
             MasterBehavior = MasterBehavior.Popover;

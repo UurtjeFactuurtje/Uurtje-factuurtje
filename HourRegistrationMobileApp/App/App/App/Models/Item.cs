@@ -4,7 +4,12 @@ namespace App.Models
 {
     public class Item
     {
-        public string Id { get; set; }
+        public String Id { get; set; }
+        public int CompanyId { get; set; }
+        public int ProjectId { get; set; }
+        public int EmployeeId { get; set; }
+        public DateTime Date { get; set; }
+        public TimeSpan Duration { get; set; } 
         public string Text { get; set; }
         public string Description { get; set; }
     }

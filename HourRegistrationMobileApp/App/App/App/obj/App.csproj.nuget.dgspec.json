@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj": {}
+    "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj": {
+    "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj",
+        "projectUniqueName": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj",
         "projectName": "App",
-        "projectPath": "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj",
-        "packagesPath": "C:\\Users\\eanva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eanva\\Documents\\UurtjeFactuurtje\\HourRegistrationMobileApp\\App\\App\\App\\obj\\",
+        "projectPath": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj",
+        "packagesPath": "C:\\Users\\royti\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\eanva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\royti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -42,11 +42,33 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Microsoft.CodeAnalysis.FxCopAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.9.8, )"
+            },
+            "Microsoft.DotNet.Cli.Utils": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "Microsoft.Office.Interop.Excel": {
+              "target": "Package",
+              "version": "[15.0.4795.1000, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "OpenXmlPowerTools": {
+              "target": "Package",
+              "version": "[4.5.3.2, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",

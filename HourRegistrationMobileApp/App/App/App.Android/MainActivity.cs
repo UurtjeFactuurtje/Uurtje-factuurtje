@@ -14,6 +14,7 @@ namespace App.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 

@@ -18,6 +18,10 @@
             <Entry Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small" />
             <Label Text="Description" FontSize="Medium" />
             <Editor Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small" Margin="0" />
+            <Label Text="Date" FontSize="Medium" />
+            <DatePicker Date="{Binding Item.Date}" FontSize="Small" Margin="0"/>
+            <Label Text="Hours" FontSize="Medium" />
+            <Editor Text="{Binding Item.Duration}" d:Text="Item work hours" FontSize="Small" Margin="0" />
         </StackLayout>
     </ContentPage.Content>
     

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using App.Models;
 
@@ -14,20 +15,20 @@ namespace App.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=1,EmployeeId = 1, Date = DateTime.Today, Duration = TimeSpan.FromHours(4), Text = "Project 1", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=1,EmployeeId = 1, Date = DateTime.Today, Duration = TimeSpan.FromHours(2), Text = "Project 1", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=2,EmployeeId = 1, Date = DateTime.Today, Duration = TimeSpan.FromHours(2), Text = "Project 1", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=2,EmployeeId = 1, Date = DateTime.Today.AddDays(-1), Duration = TimeSpan.FromHours(8), Text = "Project 1", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=3,EmployeeId = 1, Date = DateTime.Today.AddDays(1), Duration = TimeSpan.FromHours(4), Text = "Project 1", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=3,EmployeeId = 1, Date = DateTime.Today.AddDays(1), Duration = TimeSpan.FromHours(4), Text = "Project 1", Description="This is an item description." },
             };
         }
 
-        public async Task<bool> AddItemAsync(Item item)
+        public async Task<Item> AddItemAsync(Item item)
         {
             items.Add(item);
 
-            return await Task.FromResult(true);
+            return await Task.FromResult(item);
         }
 
         public async Task<bool> UpdateItemAsync(Item item)

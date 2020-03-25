@@ -22,7 +22,9 @@ namespace App.Views
             Item = new Item
             {
                 Text = "Item name",
-                Description = "This is an item description."
+                Description = "This is an item description.",
+                Date = DateTime.Today,
+                Duration = TimeSpan.FromHours(4)
             };
 
             BindingContext = this;
