@@ -46,16 +46,18 @@
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" />
-                            <Label Text="{Binding Date}" 
-                                d:Text="Item descripton"
-                                LineBreakMode="NoWrap"
+                            <DatePicker Date="{Binding Date}" 
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" />
-                            <Label Text="{Binding Duration}" 
-                                d:Text="Item descripton"
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
+                            <StackLayout Orientation="Horizontal">
+                                <TimePicker Time="{Binding StartTime}" 
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        FontSize="13" />
+                                <TimePicker Time="{Binding EndTime}" 
+                                
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="13" />
+                            </StackLayout>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

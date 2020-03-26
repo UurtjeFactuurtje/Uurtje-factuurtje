@@ -24,7 +24,6 @@ namespace App.Views
                 Text = "Item name",
                 Description = "This is an item description.",
                 Date = DateTime.Today,
-                Duration = TimeSpan.FromHours(4)
             };
 
             BindingContext = this;
