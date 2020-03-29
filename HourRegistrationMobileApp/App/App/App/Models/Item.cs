@@ -14,5 +14,12 @@ namespace App.Models
         public TimeSpan Duration { get; set; }
         public string Text { get; set; }
         public string Description { get; set; }
+        public string Day
+        {
+            get
+            {
+                return this.Date.DayOfWeek.ToString();
+                    }
+        }
     }
 }
