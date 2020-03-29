@@ -15,12 +15,12 @@ namespace App.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=1,EmployeeId = 1, Date = DateTime.Today, Duration = TimeSpan.FromHours(4), Text = "Project 1", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=1,EmployeeId = 1, Date = DateTime.Today, Duration = TimeSpan.FromHours(2), Text = "Project 1", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=2,EmployeeId = 1, Date = DateTime.Today, Duration = TimeSpan.FromHours(2), Text = "Project 1", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=2,EmployeeId = 1, Date = DateTime.Today.AddDays(-1), Duration = TimeSpan.FromHours(8), Text = "Project 1", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=3,EmployeeId = 1, Date = DateTime.Today.AddDays(1), Duration = TimeSpan.FromHours(4), Text = "Project 1", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=3,EmployeeId = 1, Date = DateTime.Today.AddDays(1), Duration = TimeSpan.FromHours(4), Text = "Project 1", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=1,EmployeeId = 1, Date = DateTime.Today, StartTime = new TimeSpan(8,30,00), EndTime = new TimeSpan(12,45,00), Text = "Project 1", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=1,EmployeeId = 1, Date = DateTime.Today, StartTime = new TimeSpan(13,30,00), EndTime = new TimeSpan(14,45,00), Text = "Project 1", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=2,EmployeeId = 1, Date = DateTime.Today, StartTime = new TimeSpan(14,45,00), EndTime = new TimeSpan(17,00,00), Text = "Project 1", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=2,EmployeeId = 1, Date = DateTime.Today.AddDays(-1), StartTime = new TimeSpan(8,30,00), EndTime = new TimeSpan(16,45,00), Text = "Project 1", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=3,EmployeeId = 1, Date = DateTime.Today.AddDays(1), StartTime = new TimeSpan(8,30,00), EndTime = new TimeSpan(12,45,00), Text = "Project 1", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(),CompanyId = 1, ProjectId=3,EmployeeId = 1, Date = DateTime.Today.AddDays(1), StartTime = new TimeSpan(12,45,00), EndTime = new TimeSpan(17,45,00), Text = "Project 1", Description="This is an item description." },
             };
         }
 
