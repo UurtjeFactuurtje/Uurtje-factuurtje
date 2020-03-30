@@ -2,6 +2,7 @@
 using HourRegistrationAPI.Model;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace HourRegistrationAPI.Controllers
 {
@@ -17,18 +18,18 @@ namespace HourRegistrationAPI.Controllers
             return new string[] { "It works" };
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult<HourRegistrationModel>> RegisterHours(HourRegistrationModel input)
-        //{
-        //    producer.ProduceHourRegistrationMessage(input);
-
-        //    return CreatedAtAction(nameof(input), new { id = input.id }, input);
-        //}
-
         [HttpPost]
-        public void RegisterHours(HourRegistrationModel input)
+        public async Task<IActionResult> RegisterHours(HourRegistrationModel input)
         {
-            producer.ProduceHourRegistrationMessage(input);
+            bool result = await Task.Run(() => producer.ProduceHourRegistrationMessage(input));
+            if (!result)
+            {
+                return BadRequest();
+            }
+
+            return StatusCode(200);
+
         }
+
     }
 }
