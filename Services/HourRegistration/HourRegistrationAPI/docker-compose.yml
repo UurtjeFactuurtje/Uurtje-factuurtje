@@ -1,20 +1,29 @@
 version: '3.4'
 
 services:
-  hourregistrationapi:
-    image: ${DOCKER_REGISTRY-}hourregistrationapi
-    ports:
-    - "80:80"
-    - "443:443"
-    build:
-      context: .
-      dockerfile: HourRegistrationAPI/Dockerfile
+    hourregistrationapi:
+        image: ${DOCKER_REGISTRY-}hourregistrationapi
+        ports:
+        - "80:80"
+        - "443:443"
+        build:
+            context: .
+            dockerfile: HourRegistrationAPI/Dockerfile
+
+    hourregistrationconsumer:
+        image: ${DOCKER_REGISTRY-}hourregistrationconsumer
+        ports:
+        - "8080:8080"
+        build:
+            context: .
+            dockerfile: "../HourRegistrationConsumer/Dockerfile"
 
 
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq
-    restart: on-failure
-    ports:
-      - "15672:15672"
-      - "5672:5672"
+    rabbitmq:
+        image: rabbitmq:3-management
+        container_name: rabbitmq
+        restart: on-failure
+        ports:
+        - "15672:15672"
+        - "5672:5672"
+

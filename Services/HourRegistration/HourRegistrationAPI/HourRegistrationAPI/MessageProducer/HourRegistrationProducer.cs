@@ -14,6 +14,12 @@ namespace HourRegistrationAPI.MessageProducer
 
             try
             {
+                DateTime parsedStartTime;
+                DateTime parsedEndTime;
+                DateTime.Parse(registeredHours.StartTime);
+                DateTime.Parse(registeredHours.EndTime);
+
+
                 var factory = new ConnectionFactory() { HostName = "rabbitmq" };
                 using (var connection = factory.CreateConnection())
                 using (var channel = connection.CreateModel())
@@ -31,7 +37,8 @@ namespace HourRegistrationAPI.MessageProducer
                                          routingKey: "IncomingHourRegistrationMessages",
                                          basicProperties: null,
                                          body: body);
-                    Console.WriteLine($"Following message was sent to queue: {message}");
+                    Console.WriteLine("Following message was sent to queue:");
+                    Console.WriteLine(message.ToString());
                 }
             }
 
