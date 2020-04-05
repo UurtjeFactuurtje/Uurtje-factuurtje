@@ -1,0 +1,8 @@
+server {
+
+    listen       8080;
+    server_name  hourregistrationapi.local;
+    location / {
+        proxy_pass http://localhost:443;
+    }
+}

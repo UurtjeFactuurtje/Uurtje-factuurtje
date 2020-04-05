@@ -1,20 +1,39 @@
 version: '3.4'
 
 services:
-  hourregistrationapi:
-    image: ${DOCKER_REGISTRY-}hourregistrationapi
-    ports:
-    - "80:80"
-    - "443:443"
-    build:
-      context: .
-      dockerfile: HourRegistrationAPI/Dockerfile
+    reverseproxy:
+        image: reverseproxy
+        ports:
+            - "80:80"
+
+    hourregistrationapi:
+        image: ${DOCKER_REGISTRY-}hourregistrationapi
+        ports:
+            - "443:443"
+            #- "80:80"
+        build:
+            context: .
+            dockerfile: HourRegistrationAPI/Dockerfile
+        depends_on:
+            - reverseproxy
+    #environment:
+    #  - VIRTUAL_HOST=hourregistrationapi.local
+    #  - VIRTUAL_PROTO=https
 
 
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq
-    restart: on-failure
-    ports:
-      - "15672:15672"
-      - "5672:5672"
+    rabbitmq:
+        image: rabbitmq:3-management
+        container_name: rabbitmq
+        restart: on-failure
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+
+ # nginx-proxy:
+  #  image: jwilder/nginx-proxy
+   # ports:
+   #   - "80:80"
+   # volumes:
+   #   - /var/run/docker.sock:/tmp/docker.sock:ro
+   #   - ./hourregistrationapi.template:/etc/nginx/conf.d/hourregistrationapi.template
+
