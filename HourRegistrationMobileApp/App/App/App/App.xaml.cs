@@ -8,13 +8,20 @@ namespace App
 {
     public partial class App : Application
     {
+        public static bool IsUserLoggedIn { get; set; }
 
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<ItemService>();
-            MainPage = new MainPage();
+            if (IsUserLoggedIn)
+            {
+                //MainPage = new NavigationPage(new LoginPage());
+            }
+            else
+            {
+                DependencyService.Register<ItemService>();
+                MainPage = new NavigationPage(new MainPage());
+            }
         }
 
         protected override void OnStart()
