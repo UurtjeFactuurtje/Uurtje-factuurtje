@@ -9,14 +9,17 @@ services:
         build:
             context: .
             dockerfile: HourRegistrationAPI/Dockerfile
+        depends_on: 
+        - rabbitmq
+
 
     hourregistrationconsumer:
         image: ${DOCKER_REGISTRY-}hourregistrationconsumer
-        ports:
-        - "8080:8080"
         build:
             context: .
             dockerfile: "../HourRegistrationConsumer/Dockerfile"
+        depends_on: 
+        - rabbitmq
 
 
     rabbitmq:
