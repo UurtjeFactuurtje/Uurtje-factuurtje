@@ -5,11 +5,27 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="App.Views.LoginPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <RelativeLayout BackgroundColor="{StaticResource Accent}">
+            <BoxView Color="{StaticResource Primary}" 
+                     RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-25}"
+                     RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5, Constant=-25}"
+                     Scale="8" Visual="Default" CornerRadius="10"/>
+            <Entry BackgroundColor="Black"
+                   Text="asfadsfasdf"
+                TextColor="{StaticResource LightTextColor}" 
+                    RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-25}"
+                     RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5, Constant=-25}"/>
+            <Entry />
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

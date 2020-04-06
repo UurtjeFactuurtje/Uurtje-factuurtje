@@ -13,14 +13,14 @@ namespace App
         public App()
         {
             InitializeComponent();
-            if (IsUserLoggedIn)
+            if (!IsUserLoggedIn)
             {
-                //MainPage = new NavigationPage(new LoginPage());
+                MainPage = new LoginPage();
             }
             else
             {
                 DependencyService.Register<ItemService>();
-                MainPage = new NavigationPage(new MainPage());
+                MainPage = new MainPage();
             }
         }
 
