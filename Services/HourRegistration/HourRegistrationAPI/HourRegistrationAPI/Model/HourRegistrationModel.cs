@@ -4,14 +4,17 @@ namespace HourRegistrationAPI.Model
 {
     public class HourRegistrationModel
     {
-        public int id { get; set; }
         [Required]
-        public int? company_id { get; set; }
+        public int? CompanyId { get; set; }
         [Required]
-        public int? project_id { get; set; }
+        public int? ProjectId { get; set; }
         [Required]
-        public int? employee_id { get; set; }
+        public int? EmployeeId { get; set; }
         [Required]
-        public int? hours { get; set; }
+        public string? StartTime { get; set; }
+        [Required]
+        public string? EndTime { get; set; }
+
+        public string Description { get; set; }
     }
 }
