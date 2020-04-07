@@ -1,7 +1,9 @@
 ﻿using HourRegistrationAPI.Model;
 using RabbitMQ.Client;
 using System;
-using System.Text;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace HourRegistrationAPI.MessageProducer
 {
@@ -14,12 +16,6 @@ namespace HourRegistrationAPI.MessageProducer
 
             try
             {
-                DateTime parsedStartTime;
-                DateTime parsedEndTime;
-                DateTime.Parse(registeredHours.StartTime);
-                DateTime.Parse(registeredHours.EndTime);
-
-
                 var factory = new ConnectionFactory() { HostName = "rabbitmq" };
                 using (var connection = factory.CreateConnection())
                 using (var channel = connection.CreateModel())
@@ -30,8 +26,13 @@ namespace HourRegistrationAPI.MessageProducer
                                          autoDelete: false,
                                          arguments: null);
 
-                    string message = registeredHours.ToString();
-                    var body = Encoding.UTF8.GetBytes(message);
+                    HourRegistrationModel message = registeredHours;
+                    IFormatter formatter = new BinaryFormatter();
+
+                    MemoryStream memoryStream = new MemoryStream();
+
+                    formatter.Serialize(memoryStream, message);
+                    var body = memoryStream.ToArray();
 
                     channel.BasicPublish(exchange: "",
                                          routingKey: "IncomingHourRegistrationMessages",

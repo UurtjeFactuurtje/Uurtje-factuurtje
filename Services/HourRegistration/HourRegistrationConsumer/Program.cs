@@ -1,17 +1,21 @@
-﻿using RabbitMQ.Client;
+﻿using HourRegistrationAPI.Model;
+using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
 namespace HourRegistrationConsumer
 {
     class Program
     {
-        //HourRegistrationAPI.Model.HourRegistrationModel model;
-
         public static void Main()
         {
+
             var factory = new ConnectionFactory() { HostName = "rabbitmq" };
+            factory.AutomaticRecoveryEnabled = true;
+
             using (var connection = factory.CreateConnection())
             {
                 using (var channel = connection.CreateModel())
@@ -27,7 +31,8 @@ namespace HourRegistrationConsumer
                     {
                         var body = ea.Body;
                         var message = Encoding.UTF8.GetString(body);
-                        Console.WriteLine(" [x] Received {0}", message);
+                        HourRegistrationModel retrievedModel = GetModelFromBody(body);
+                        Console.WriteLine(retrievedModel.Description);
                     };
 
                     channel.BasicConsume(queue: "IncomingHourRegistrationMessages",
@@ -38,7 +43,20 @@ namespace HourRegistrationConsumer
                     Console.ReadLine();
                 }
             }
-        }
 
+            HourRegistrationModel GetModelFromBody(byte[] body)
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                object receivedMessage;
+                using (MemoryStream ms = new MemoryStream(body))
+                {
+                    receivedMessage = bf.Deserialize(ms);
+                }
+
+                return (HourRegistrationModel)receivedMessage;
+
+
+            }
+        }
     }
 }
