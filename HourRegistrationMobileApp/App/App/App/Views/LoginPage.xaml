@@ -15,17 +15,35 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <RelativeLayout BackgroundColor="{StaticResource Accent}">
-            <BoxView Color="{StaticResource Primary}" 
+        <RelativeLayout BackgroundColor="White">
+            <BoxView Color="{StaticResource Accent}" 
                      RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-25}"
                      RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5, Constant=-25}"
-                     Scale="8" Visual="Default" CornerRadius="10"/>
-            <Entry BackgroundColor="Black"
-                   Text="asfadsfasdf"
+                     Scale="8" Visual="Material" CornerRadius="10" HorizontalOptions="Center"/>
+            <Entry Placeholder="Username" x:Name="usernameEntry"
+                   WidthRequest="200"
                 TextColor="{StaticResource LightTextColor}" 
-                    RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-25}"
-                     RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5, Constant=-25}"/>
-            <Entry />
+                    RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-100}"
+                     RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5, Constant=-80}" VerticalOptions="Center"/>
+            <Entry Placeholder="Password" x:Name="passwordEntry"
+                   WidthRequest="200"
+                TextColor="{StaticResource LightTextColor}" 
+                   RelativeLayout.XConstraint= "{ConstraintExpression 
+                Type=RelativeToParent, 
+                Property=Width, 
+                Factor=0.5, 
+                Constant=-100}"
+                   RelativeLayout.YConstraint= "{ConstraintExpression 
+                Type=RelativeToParent, 
+                Property=Height, Factor=0.5, Constant=-20}" VerticalOptions="Center"/>
+            <Button Text="Login"
+                    Clicked="OnLoginButtonClicked"
+                    RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
+                    RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5, Constant=40}" VerticalOptions="Center"/>
+            <Button Text="Sign up" 
+                    Clicked="OnSignUpButtonClicked"
+                    RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
+                    RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5, Constant=80}" VerticalOptions="Center"/>
         </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -17,3 +17,4 @@ C:\repos\Uurtje-factuurtje\HourRegistrationMobileApp\App\App\App\obj\Debug\netst
 C:\repos\Uurtje-factuurtje\HourRegistrationMobileApp\App\App\App\obj\Debug\netstandard2.0\App.dll
 C:\repos\Uurtje-factuurtje\HourRegistrationMobileApp\App\App\App\obj\Debug\netstandard2.0\ref\App.dll
 C:\repos\Uurtje-factuurtje\HourRegistrationMobileApp\App\App\App\obj\Debug\netstandard2.0\App.pdb
+C:\repos\Uurtje-factuurtje\HourRegistrationMobileApp\App\App\App\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs

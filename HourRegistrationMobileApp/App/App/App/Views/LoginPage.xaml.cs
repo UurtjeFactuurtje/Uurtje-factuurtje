@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,36 @@ namespace App.Views
         {
             InitializeComponent();
         }
-    }
+        async void OnSignUpButtonClicked(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+		async void OnLoginButtonClicked(object sender, EventArgs e)
+		{
+			var employee = new Employee
+			{
+				Username = usernameEntry.Text,
+				Password = passwordEntry.Text
+			};
+
+			var isValid = AreCredentialsCorrect(employee);
+			if (isValid)
+			{
+				App.IsUserLoggedIn = true;
+				MessagingCenter.Send<object>(this, App.EVENT_LAUNCH_MAIN_PAGE);
+
+			}
+			else
+			{
+				await DisplayAlert("Alert", "Login failed", "Retry");
+				passwordEntry.Text = string.Empty;
+			}
+		}
+
+		private bool AreCredentialsCorrect(Employee employee)
+		{
+			return employee.Username == "test" && employee.Password == "test";
+		}
+	}
 }
