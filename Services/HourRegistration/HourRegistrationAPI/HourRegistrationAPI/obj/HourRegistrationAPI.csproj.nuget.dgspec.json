@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj": {}
+    "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj": {}
   },
   "projects": {
-    "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj": {
+    "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj",
+        "projectUniqueName": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj",
         "projectName": "HourRegistrationAPI",
-        "projectPath": "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj",
-        "packagesPath": "C:\\Users\\royti\\.nuget\\packages\\",
-        "outputPath": "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\obj\\",
+        "projectPath": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj",
+        "packagesPath": "C:\\Users\\Lisa\\.nuget\\packages\\",
+        "outputPath": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

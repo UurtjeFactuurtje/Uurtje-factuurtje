@@ -10,7 +10,7 @@ namespace HourRegistrationAPI.Controllers
     [Route("api/[controller]")]
     public class HourInputController : ControllerBase
     {
-        HourRegistrationProducer producer = new HourRegistrationProducer();
+        static HourRegistrationProducer producer = new HourRegistrationProducer();
 
         [HttpGet]
         public ActionResult<IEnumerable<string>> PostHours()

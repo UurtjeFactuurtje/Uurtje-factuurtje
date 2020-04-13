@@ -10,17 +10,54 @@ namespace HourRegistrationAPI.MessageProducer
 {
     public class HourRegistrationProducer
     {
+        static ConnectionFactory _factory;
+        static IConnection _connection;
+
+        public HourRegistrationProducer()
+        { 
+            _factory = new ConnectionFactory() { HostName = "rabbitmq" };
+            _connection = null;
+        }
+
+        bool GetConnection(ConnectionFactory factory)
+        {
+            bool connectionSuccess = false;
+            while (!connectionSuccess)
+            {
+                try
+                {
+                    _connection = factory.CreateConnection();
+                    connectionSuccess = true;
+                }
+                catch (Exception e)
+                {
+                    connectionSuccess = false;
+                }
+            }
+            return connectionSuccess;
+        }
 
         public bool ProduceHourRegistrationMessage(HourRegistrationModel registeredHours)
         {
+            try
+            {
+                if (!_connection.IsOpen)
+                {
+                    GetConnection(_factory);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("No connection established yet");
+                GetConnection(_factory);
+            }
+
             bool success = true;
 
             try
             {
-
-                var factory = new ConnectionFactory() { HostName = "rabbitmq" };
-                using (var connection = factory.CreateConnection())
-                using (var channel = connection.CreateModel())
+                using (_connection)
+                using (var channel = _connection.CreateModel())
                 {
                     channel.QueueDeclare(queue: "IncomingHourRegistrationMessages",
                                          durable: false,
@@ -53,6 +90,8 @@ namespace HourRegistrationAPI.MessageProducer
 
             return success;
         }
+
+
     }
 }
 
