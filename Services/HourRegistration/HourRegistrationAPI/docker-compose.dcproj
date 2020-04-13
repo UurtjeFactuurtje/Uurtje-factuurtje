@@ -5,7 +5,8 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <ProjectGuid>1e5b7635-0274-47ed-85cc-0edaeffc2c71</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
+  </PropertyGroup>
+  <PropertyGroup>
     <DockerServiceName>hourregistrationapi</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>

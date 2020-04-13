@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
 
 namespace HourRegistrationAPI.MessageProducer
 {
@@ -16,6 +17,7 @@ namespace HourRegistrationAPI.MessageProducer
 
             try
             {
+
                 var factory = new ConnectionFactory() { HostName = "rabbitmq" };
                 using (var connection = factory.CreateConnection())
                 using (var channel = connection.CreateModel())

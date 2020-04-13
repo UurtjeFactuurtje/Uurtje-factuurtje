@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "HourRegistrationConsumer": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
