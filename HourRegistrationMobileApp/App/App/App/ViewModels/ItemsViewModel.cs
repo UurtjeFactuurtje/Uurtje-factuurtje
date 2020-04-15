@@ -7,6 +7,8 @@ using Xamarin.Forms;
 
 using App.Models;
 using App.Views;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace App.ViewModels
 {
@@ -20,13 +22,20 @@ namespace App.ViewModels
             Title = "Browse";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
+            try
             {
-                var newItem = item as Item;
-                Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
-            });
+                MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
+                {
+                    var newItem = item as Item;
+                    Debug.WriteLine(JsonConvert.SerializeObject(newItem));
+                    Items.Add(newItem);
+                    await DataStore.AddItemAsync(newItem);
+                });
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
 
         async Task ExecuteLoadItemsCommand()

@@ -49,6 +49,7 @@ namespace App
 
         private void SetMainPageAsRootPage(object sender)
         {
+            DependencyService.Register<ItemService>();
             MainPage = new MainPage();
         }
     }

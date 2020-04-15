@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,18 @@ namespace App.Services
     class ItemService : IDataStore<Item>
     {
 
-        const string Url = "https://172.17.162.241:32776/api/hourinput/";
+        const string Url = "https://192.168.2.67:443/api/hourinput/";
 
         private HttpClient GetClient()
         {
-            HttpClient client = new HttpClient();
+            HttpClient client = new HttpClient(new HttpClientHandler()
+            {
+                ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+                {
+                    //bypass
+                    return true;
+                }
+            }, false);
             //if (string.IsNullOrEmpty(authorizationKey))
             //{
             //    authorizationKey = await client.GetStringAsync(Url + "login");
@@ -35,6 +43,11 @@ namespace App.Services
                 new StringContent(JsonConvert.SerializeObject(item),
                 Encoding.UTF8, "application/json"));
 
+            if (!response.IsSuccessStatusCode)
+            {
+                Debug.WriteLine(response);
+            }
+
             return JsonConvert.DeserializeObject<Item>(
                 await response.Content.ReadAsStringAsync());
         }
@@ -49,9 +62,14 @@ namespace App.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
         {
             throw new NotImplementedException();
+            //HttpClient client = GetClient();
+            //var response = await client.GetAsync(Url);
+
+            //return JsonConvert.DeserializeObject<List<Item>>(
+              //  await response.Content.ReadAsStringAsync());
         }
 
         public Task<bool> UpdateItemAsync(Item item)
