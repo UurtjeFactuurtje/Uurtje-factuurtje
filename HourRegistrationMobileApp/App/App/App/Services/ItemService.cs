@@ -12,11 +12,17 @@ namespace App.Services
     class ItemService : IDataStore<Item>
     {
 
-        const string Url = "https://172.17.162.241:32776/api/hourinput/";
+        const string Url = "https://192.168.2.67:32768/api/hourinput/";
 
         private HttpClient GetClient()
         {
-            HttpClient client = new HttpClient();
+            HttpClient client = new HttpClient(new HttpClientHandler() {
+                ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+                {
+                    //bypass
+                    return true;
+                }
+            },false);
             //if (string.IsNullOrEmpty(authorizationKey))
             //{
             //    authorizationKey = await client.GetStringAsync(Url + "login");
