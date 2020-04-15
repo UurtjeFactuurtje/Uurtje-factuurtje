@@ -6,20 +6,22 @@ namespace HourRegistrationAPI.Model
     [Serializable]
     public class HourRegistrationModel
     {
-        [Required]
-        public int CompanyId { get; set; }
+        public string Id { get; set; }
 
         [Required]
-        public int ProjectId { get; set; }
+        public string CompanyId { get; set; }
 
         [Required]
-        public int EmployeeId { get; set; }
+        public string ProjectId { get; set; }
 
         [Required]
-        public string StartTime { get; set; }
+        public string EmployeeId { get; set; }
 
         [Required]
-        public string EndTime { get; set; }
+        public DateTime StartTime { get; set; }
+
+        [Required]
+        public DateTime EndTime { get; set; }
 
         public string Description { get; set; }
     }
