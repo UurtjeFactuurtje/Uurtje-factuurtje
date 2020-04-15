@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace HourRegistrationAPI
 {
-    public class Program
+    public class HourRegistrationAPIProgram
     {
         public static void Main(string[] args)
         {
