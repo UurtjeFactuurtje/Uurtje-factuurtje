@@ -7,6 +7,8 @@ using Xamarin.Forms;
 
 using App.Models;
 using App.Views;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace App.ViewModels
 {
@@ -25,10 +27,12 @@ namespace App.ViewModels
                 MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
                 {
                     var newItem = item as Item;
+                    Debug.WriteLine(JsonConvert.SerializeObject(newItem));
                     Items.Add(newItem);
                     await DataStore.AddItemAsync(newItem);
                 });
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
