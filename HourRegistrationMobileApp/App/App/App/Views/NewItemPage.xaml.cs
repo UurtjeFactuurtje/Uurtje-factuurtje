@@ -21,6 +21,9 @@ namespace App.Views
 
             Item = new Item
             {
+                CompanyId = "1",
+                ProjectId = "2",
+                EmployeeId = "3",
                 Text = "Item name",
                 Description = "This is an item description.",
                 Date = DateTime.Today,
@@ -31,6 +34,8 @@ namespace App.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
+            Item.StartTime = Item.Date + PickerStartTime.Time;
+            Item.EndTime = Item.Date + PickerEndTime.Time;
             MessagingCenter.Send(this, "AddItem", Item);
             await Navigation.PopModalAsync();
         }

@@ -1,4 +1,5 @@
-﻿using HourRegistrationAPI.Model;
+﻿using Cassandra;
+using HourRegistrationAPI.Model;
 using RabbitMQ.Client;
 using System;
 using System.IO;
@@ -39,6 +40,11 @@ namespace HourRegistrationAPI.MessageProducer
 
         public bool ProduceHourRegistrationMessage(HourRegistrationModel registeredHours)
         {
+            if (!DataIsValid(registeredHours))
+            { return false; }
+
+            bool success = true;
+
             try
             {
                 if (!_connection.IsOpen)
@@ -51,8 +57,6 @@ namespace HourRegistrationAPI.MessageProducer
                 Console.WriteLine("No connection established yet");
                 GetConnection(_factory);
             }
-
-            bool success = true;
 
             try
             {
@@ -78,7 +82,7 @@ namespace HourRegistrationAPI.MessageProducer
                                          basicProperties: null,
                                          body: body);
                     Console.WriteLine("Following message was sent to queue:");
-                    Console.WriteLine(message.ToString());
+                    Console.WriteLine(message.Description);
                 }
             }
 
@@ -89,6 +93,27 @@ namespace HourRegistrationAPI.MessageProducer
             }
 
             return success;
+        }
+
+        private bool DataIsValid(HourRegistrationModel registeredHours)
+        {
+            bool valid = false;
+            try
+            {
+                LocalDate startDate = LocalDate.Parse($"{registeredHours.StartTime.Year}-{registeredHours.StartTime.Month}-{registeredHours.StartTime.Day}");
+                LocalDate endDate = LocalDate.Parse($"{registeredHours.EndTime.Year}-{registeredHours.EndTime.Month}-{registeredHours.EndTime.Day}");
+                LocalTime startTime = LocalTime.Parse($"{registeredHours.StartTime.Hour}:{registeredHours.StartTime.Minute}:{registeredHours.StartTime.Second}");
+                LocalTime endTime = LocalTime.Parse($"{registeredHours.EndTime.Hour}:{registeredHours.EndTime.Minute}:{registeredHours.EndTime.Second}");
+                Guid emp = Guid.Parse(registeredHours.EmployeeId);
+                Guid com = Guid.Parse(registeredHours.CompanyId);
+                Guid proj = Guid.Parse(registeredHours.ProjectId);
+                valid = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"The format was not correct! {e.Message}");
+            }
+            return valid;
         }
 
 

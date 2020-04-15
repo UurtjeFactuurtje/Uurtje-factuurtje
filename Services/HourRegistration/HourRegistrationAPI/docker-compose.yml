@@ -3,14 +3,25 @@ version: '3.4'
 services:
     rabbitmq:
         image: rabbitmq:3-management-alpine
+        container_name: Rabbitmq
+
+    cassandra:
+        image: ${DOCKER_REGISTRY-}cassandrahourregistration
+        container_name: HourRegistrationCassandraDB
+        build:
+            context: .
+            dockerfile: "Cassandra/Dockerfile"
+        user: "cassandra"
+        volumes: 
+        - ./Cassandra/ :/usr/local/bin/
 
     hourregistrationapi:
         image: ${DOCKER_REGISTRY-}hourregistrationapi
         build:
             context: .
-            dockerfile: HourRegistrationAPI/Dockerfile
+            dockerfile: "HourRegistrationAPI/Dockerfile"
         ports:
-        - "80:80"
+        - "443:443"
         depends_on: 
         - rabbitmq
 
@@ -22,3 +33,9 @@ services:
             dockerfile: "HourRegistrationConsumer/Dockerfile"
         depends_on: 
         - rabbitmq
+        - cassandra
+
+networks:
+  default:
+    external:
+      name: hourregistrationnetwork
