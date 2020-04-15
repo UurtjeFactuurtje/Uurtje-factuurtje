@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.Net;
 
 namespace App.Droid
 {
@@ -14,7 +15,11 @@ namespace App.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+            // You may use ServicePointManager here
+          //  ServicePointManager
+              //  .ServerCertificateValidationCallback +=
+               // (sender, cert, chain, sslPolicyErrors) => true;
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
