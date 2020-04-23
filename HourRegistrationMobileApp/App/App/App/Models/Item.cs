@@ -4,10 +4,10 @@ namespace App.Models
 {
     public class Item
     {
-        public string Id { get; set; }
-        public string CompanyId { get; set; }
-        public string ProjectId { get; set; }
-        public string EmployeeId { get; set; }
+        public Guid Id { get; set; }
+        public Guid CompanyId { get; set; }
+        public Guid ProjectId { get; set; }
+        public Guid EmployeeId { get; set; }
         public DateTime Date { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
