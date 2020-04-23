@@ -83,7 +83,7 @@ namespace HourRegistrationConsumer
                 Guid com = Guid.Parse(model.CompanyId);
                 Guid proj = Guid.Parse(model.ProjectId);
                 var statement = preparedStatement.Bind(com, proj, emp, startDate, startTime, endDate, endTime, model.Description);
-                session.Execute(statement);
+                session.ExecuteAsync(statement);
             }
             catch (Exception e)
             {
