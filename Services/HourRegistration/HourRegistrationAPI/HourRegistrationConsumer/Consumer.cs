@@ -42,7 +42,7 @@ namespace HourRegistrationConsumer
                         HourRegistrationModel retrievedModel = GetModelFromBody(body);
 
                         ISession cassandraSession = GetCassandraSession(cluster);
-                        var preparedStatement = cassandraSession.Prepare("INSERT INTO uurtjefactuurtje.hours (id, company_id, project_id, employee_id, start_date, start_time, end_date, end_time, description) VALUES (uuid(), ?, ?, ?, ?, ?, ?, ?, ?)");
+                        var preparedStatement = cassandraSession.Prepare("INSERT INTO uurtjefactuurtje.registered_hours_by_employee (company_id, project_id, employee_id, start_date, start_time, end_date, end_time, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
                         WriteToDatabase(retrievedModel, cassandraSession, preparedStatement);
                         Console.WriteLine(retrievedModel.Description);

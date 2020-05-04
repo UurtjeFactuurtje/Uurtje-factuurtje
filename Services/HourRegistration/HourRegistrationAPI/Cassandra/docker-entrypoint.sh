@@ -95,9 +95,8 @@ if [[ ! -z "uurtjefactuurtje" && $1 = 'cassandra' ]]; then
   # Create default keyspace for single node cluster
   CQL="CREATE KEYSPACE IF NOT EXISTS uurtjefactuurtje
     WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
-
-	CREATE TABLE IF NOT EXISTS uurtjefactuurtje.hours (
-    id uuid PRIMARY KEY,
+	
+	CREATE TABLE IF NOT EXISTS uurtjefactuurtje.registered_hours_by_employee (
     company_id uuid,
     project_id uuid,
     employee_id uuid,
@@ -105,8 +104,21 @@ if [[ ! -z "uurtjefactuurtje" && $1 = 'cassandra' ]]; then
     start_time time,
     end_date date,
     end_time time,
-    description text
-	);"
+    description text,
+	PRIMARY KEY (employee_id, start_date, start_time)
+	);
+	
+	CREATE TABLE IF NOT EXISTS uurtjefactuurtje.projects_by_employee (
+    company_id uuid,
+	company_name text,
+    project_id uuid,
+	project_name text,
+    employee_id uuid,
+	PRIMARY KEY (employee_id, project_id)
+	);
+	
+    INSERT INTO uurtjefactuurtje.projects_by_employee (company_id, company_name, project_id, project_name, employee_id) VALUES (da00191a-7f68-11ea-bc55-0242ac130003, 'FHICT', da001b40-7f68-11ea-bc55-0242ac130003, 'EnterpriseSoftware', da001c30-7f68-11ea-bc55-0242ac130003);"
+
   until echo $CQL | cqlsh; do
     echo "cqlsh: Cassandra is unavailable - retry later"
     sleep 2

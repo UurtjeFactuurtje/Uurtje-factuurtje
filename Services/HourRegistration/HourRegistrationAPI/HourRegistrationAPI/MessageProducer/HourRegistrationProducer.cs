@@ -107,7 +107,11 @@ namespace HourRegistrationAPI.MessageProducer
                 Guid emp = Guid.Parse(registeredHours.EmployeeId);
                 Guid com = Guid.Parse(registeredHours.CompanyId);
                 Guid proj = Guid.Parse(registeredHours.ProjectId);
-                valid = true;
+
+                if (registeredHours.StartTime < registeredHours.EndTime)
+                {
+                    valid = true;
+                }
             }
             catch (Exception e)
             {

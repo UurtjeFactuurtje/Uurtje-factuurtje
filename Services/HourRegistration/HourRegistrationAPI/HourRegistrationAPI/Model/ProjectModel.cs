@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace HourRegistrationAPI.Model
 {
     [Serializable]
-    public class HourRegistrationModel
+    public class ProjectModel
     {
         [Required]
         public string CompanyId { get; set; }
@@ -13,14 +16,10 @@ namespace HourRegistrationAPI.Model
         public string ProjectId { get; set; }
 
         [Required]
-        public string EmployeeId { get; set; }
+        public string CompanyName { get; set; }
 
         [Required]
-        public DateTime StartTime { get; set; }
+        public string ProjectName { get; set; }
 
-        [Required]
-        public DateTime EndTime { get; set; }
-
-        public string Description { get; set; }
     }
 }
