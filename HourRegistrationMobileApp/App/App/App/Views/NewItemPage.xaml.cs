@@ -21,9 +21,9 @@ namespace App.Views
 
             Item = new Item
             {
-                CompanyId = "1",
-                ProjectId = "2",
-                EmployeeId = "3",
+                CompanyId = Guid.NewGuid(),
+                ProjectId = Guid.NewGuid(),
+                EmployeeId = Guid.NewGuid(),
                 Text = "Item name",
                 Description = "This is an item description.",
                 Date = DateTime.Today,

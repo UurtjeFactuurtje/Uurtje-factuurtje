@@ -81,7 +81,6 @@ C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourReg
 C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.csprojAssemblyReference.cache
 C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.csproj.CoreCompileInputs.cache
 C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.AssemblyInfoInputs.cache
@@ -93,3 +92,8 @@ C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourReg
 C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.dll
 C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.pdb
 C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.genruntimeconfig.cache
+C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\Cassandra.dll
+C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\System.Management.dll
+C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Management.dll
+C:\repos\Uurtje-factuurtje\Services\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\obj\Debug\netcoreapp3.1\HourRegistrationAPI.csprojAssemblyReference.cache
