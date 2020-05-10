@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'management-web-app';
+  title = 'Uurtje Factuurtje management app';
 }
