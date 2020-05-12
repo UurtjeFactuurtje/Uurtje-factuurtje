@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { PROJECTS } from '../mock-projects';
+import { ProjectService } from '../project.service';
 import { Project } from '../project';
 import { Company } from '../company';
 
@@ -11,11 +11,17 @@ import { Company } from '../company';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private projectService: ProjectService) { }
 
-  projects = PROJECTS;
+  projects : Project[];
+
+  getProjects(): void{
+    this.projectService.getProjects()
+    .subscribe(projects => this.projects = projects);
+  }
 
   ngOnInit(): void {
+    this.getProjects();
   }
 
 }
