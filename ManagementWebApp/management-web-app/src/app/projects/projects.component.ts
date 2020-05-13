@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatGridListModule} from '@angular/material/grid-list';
 import { ProjectService } from '../project.service';
 import { Project } from '../project';
+import { FormBuilder } from '@angular/forms';
 import { Company } from '../company';
 
 @Component({
@@ -13,12 +13,14 @@ export class ProjectsComponent implements OnInit {
 
   constructor(private projectService: ProjectService) { }
 
-  projects : Project[];
+  projects: Project[];
 
-  getProjects(): void{
+  getProjects(): void {
     this.projectService.getProjects()
-    .subscribe(projects => this.projects = projects);
+      .subscribe(projects => this.projects = projects);
   }
+
+
 
   ngOnInit(): void {
     this.getProjects();

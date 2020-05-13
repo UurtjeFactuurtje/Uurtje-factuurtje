@@ -4,6 +4,13 @@ import { Project } from './project';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +19,10 @@ export class ProjectService {
 
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(this.projectsApiUrl);
+  }
+
+  addProject (project: Project): Observable<Project> {
+    return this.http.post<Project>(this.projectsApiUrl, project, httpOptions);
   }
 
   constructor(private http: HttpClient) { }
