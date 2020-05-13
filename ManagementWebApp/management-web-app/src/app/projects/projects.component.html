@@ -4,21 +4,21 @@
             <h2 style="text-align: center;">Add new project</h2>
             <div class="card" style="margin-top: 45px;">
                 <div class="card-body">
-                    <form>
+                    <form [formGroup]="addProjectForm" (ngSubmit)="onSubmit(addProjectForm.value)">
                         <div class="form-group">
-                            <label for="formGroupExampleInput">Project name</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput"
-                                placeholder="Project name">
+                            <label for="projectName">Project name</label>
+                            <input type="text" class="form-control" id="projectName"
+                                placeholder="Project name" formControlName="projectName">
                         </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput2">Project description</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput2"
-                                placeholder="Project description">
+                            <label for="projectDescription">Project description</label>
+                            <input type="text" class="form-control" id="projectDescription"
+                                placeholder="Project description" formControlName="projectDescription">
                         </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput2">Start date</label>
-                            <input type="datetime-local" class="form-control" id="formGroupExampleInput2"
-                                placeholder="Start date" min="2018-06-07T00:00" value="2020-05-14T00:00">
+                            <label for="projectStartDate">Start date</label>
+                            <input type="datetime-local" formControlName="projectStartDate" class="form-control" id="projectStartDate"
+                                placeholder="Start date">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Add new project</button>
