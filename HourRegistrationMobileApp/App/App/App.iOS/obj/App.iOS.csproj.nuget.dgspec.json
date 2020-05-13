@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\App.iOS.csproj": {}
+    "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\App.iOS.csproj": {}
   },
   "projects": {
-    "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\App.iOS.csproj": {
+    "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\App.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\App.iOS.csproj",
+        "projectUniqueName": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\App.iOS.csproj",
         "projectName": "App.iOS",
-        "projectPath": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\App.iOS.csproj",
-        "packagesPath": "C:\\Users\\Lisa\\.nuget\\packages\\",
-        "outputPath": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\obj\\",
+        "projectPath": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\App.iOS.csproj",
+        "packagesPath": "C:\\Users\\royti\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Lisa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\royti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj": {
-                "projectPath": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj"
+              "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj": {
+                "projectPath": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj"
               }
             }
           }
@@ -65,21 +65,20 @@
         }
       }
     },
-    "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj": {
+    "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj",
+        "projectUniqueName": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj",
         "projectName": "App",
-        "projectPath": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj",
-        "packagesPath": "C:\\Users\\Lisa\\.nuget\\packages\\",
-        "outputPath": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\obj\\",
+        "projectPath": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\App.csproj",
+        "packagesPath": "C:\\Users\\royti\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\Uurtje-factuurtje\\HourRegistrationMobileApp\\App\\App\\App\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Lisa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\royti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],

@@ -5,6 +5,10 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using App.Models;
+using App.Services;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 namespace App.Views
 {
@@ -14,19 +18,22 @@ namespace App.Views
     public partial class NewItemPage : ContentPage
     {
         public Item Item { get; set; }
+        public ObservableCollection<Project> Projects { get; set; }
+        public IDataStore<Project> ProjectDataStore => DependencyService.Get<IDataStore<Project>>();
+
 
         public NewItemPage()
         {
             InitializeComponent();
+            Projects = new ObservableCollection<Project>();
+            ExecuteLoadItemsCommand();
 
             Item = new Item
             {
                 CompanyId = Guid.NewGuid(),
                 ProjectId = Guid.NewGuid(),
-                EmployeeId = Guid.NewGuid(),
-                Text = "Item name",
+                EmployeeId = Guid.Parse("b6ef7666-716d-46a6-98c6-9c73c43be6ab"),
                 Description = "This is an item description.",
-                Date = DateTime.Today,
             };
 
             BindingContext = this;
@@ -34,8 +41,9 @@ namespace App.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            Item.StartTime = Item.Date + PickerStartTime.Time;
-            Item.EndTime = Item.Date + PickerEndTime.Time;
+            
+            Item.StartTime = DatePickerView.Date + PickerStartTime.Time;
+            Item.EndTime = DatePickerView.Date + PickerEndTime.Time;
             MessagingCenter.Send(this, "AddItem", Item);
             await Navigation.PopModalAsync();
         }
@@ -43,6 +51,31 @@ namespace App.Views
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+        async Task ExecuteLoadItemsCommand()
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                Projects.Clear();
+                var items = await ProjectDataStore.GetItemsAsync(true);
+                foreach (var item in items)
+                {
+                    Projects.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

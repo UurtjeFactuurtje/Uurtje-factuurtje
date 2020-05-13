@@ -23,6 +23,7 @@ namespace App
             else
             {
                 DependencyService.Register<ItemService>();
+                DependencyService.Register<ProjectService>();
                 MainPage = new MainPage();
             }
 
@@ -50,6 +51,7 @@ namespace App
         private void SetMainPageAsRootPage(object sender)
         {
             DependencyService.Register<ItemService>();
+            DependencyService.Register<ProjectService>();
             MainPage = new MainPage();
         }
     }
