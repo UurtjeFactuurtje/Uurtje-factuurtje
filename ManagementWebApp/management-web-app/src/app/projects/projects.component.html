@@ -1,20 +1,54 @@
-<div class="container">
-
-    <mat-grid-list cols="3">
-        <mat-grid-tile *ngFor="let project of projects">
-            <div class="card mb-4 shadow-sm">
+<div class="container" style="margin: 2%; max-width: 95%;">
+    <div class="row align-items-start" style="width: 100%;">
+        <div class="col">
+            <h2 style="text-align: center;">Add new project</h2>
+            <div class="card" style="margin-top: 45px;">
                 <div class="card-body">
-                    <h5 class="card-title">{{project.name}} Details</h5>
-                    <p class="card-text">{{project.description}}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    <form [formGroup]="addProjectForm" (ngSubmit)="onSubmit(addProjectForm.value)">
+                        <div class="form-group">
+                            <label for="projectName">Project name</label>
+                            <input type="text" class="form-control" id="projectName"
+                                placeholder="Project name" formControlName="projectName">
                         </div>
-                        <small class="text-muted">{{project.startDate | date: 'dd/MMM/yyyy'}}</small>
-                    </div>
+                        <div class="form-group">
+                            <label for="projectDescription">Project description</label>
+                            <input type="text" class="form-control" id="projectDescription"
+                                placeholder="Project description" formControlName="projectDescription">
+                        </div>
+                        <div class="form-group">
+                            <label for="projectStartDate">Start date</label>
+                            <input type="datetime-local" formControlName="projectStartDate" class="form-control" id="projectStartDate"
+                                placeholder="Start date">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add new project</button>
+                    </form>
                 </div>
+
             </div>
-        </mat-grid-tile>
-    </mat-grid-list>
+        </div>
+
+        <div class="col-9">
+            <h2 style="text-align: center;">Active projects</h2>
+            <mat-grid-list cols="3" rowHeight="250">
+                <mat-grid-tile *ngFor="let project of projects">
+                    <div class="card mb-4 shadow-sm" style="width: 95%;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{project.name}} Details</h5>
+                            <p class="card-text">{{project.description}}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">{{project.startDate | date: 'dd/MMM/yyyy'}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+        </div>
+    </div>
+
 </div>

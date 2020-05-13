@@ -4,6 +4,8 @@ import { Project } from './project';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +14,11 @@ export class ProjectService {
 
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(this.projectsApiUrl);
+  }
+
+  addProject (project: Project): Observable<Project> {
+    console.warn(this.http.post<Project>(this.projectsApiUrl, project));
+    return this.http.post<Project>(this.projectsApiUrl, project);
   }
 
   constructor(private http: HttpClient) { }

@@ -1,9 +1,13 @@
 import { Company } from './company';
 
-export interface Project{
-    id: string;
-    name: string;
-    description: string;
-    startDate: Date;
-    endDate: Date;
+export class Project {
+    public constructor(init?: Partial<Project>) {
+        Object.assign(this, init);
+    }
+
+    Id: string;
+    Name: string;
+    Description: string;
+    StartDate: Date;
+    EndDate: Date;
 }
