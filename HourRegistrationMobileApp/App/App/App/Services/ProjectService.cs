@@ -11,9 +11,9 @@ using System.Web;
 namespace App.Services
 {
 
-    class ItemService : IDataStore<Item>
+    class ProjectService : IDataStore<Project>
     {
-        const string Url = "https://192.168.2.20:443/api/hourinput/";
+        const string Url = "https://192.168.2.20:32770/api/ProjectModels/";
 
         private HttpClient GetClient()
         {
@@ -36,20 +36,9 @@ namespace App.Services
             return client;
         }
 
-        public async Task<Item> AddItemAsync(Item item)
+        public Task<Project> AddItemAsync(Project item)
         {
-            HttpClient client = GetClient();
-            var response = await client.PostAsync(Url,
-                new StringContent(JsonConvert.SerializeObject(item),
-                Encoding.UTF8, "application/json"));
-
-            if (!response.IsSuccessStatusCode)
-            {
-                Debug.WriteLine(response);
-            }
-
-            return JsonConvert.DeserializeObject<Item>(
-                await response.Content.ReadAsStringAsync());
+            throw new NotImplementedException();
         }
 
         public Task<bool> DeleteItemAsync(string id)
@@ -57,30 +46,35 @@ namespace App.Services
             throw new NotImplementedException();
         }
 
-        public Task<Item> GetItemAsync(string id)
+        public Task<Project> GetItemAsync(string id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
+        async public Task<IEnumerable<Project>> GetItemsAsync(bool forceRefresh = false)
         {
             HttpClient client = GetClient();
-            var param1 = "?EmployeeId="+ HttpUtility.UrlEncode("b6ef7666-716d-46a6-98c6-9c73c43be6ab");
-            Debug.WriteLine(Url + param1);
-            var response = await client.GetAsync(Url + param1);
-
-            if (!response.IsSuccessStatusCode)
+            try
             {
-                Debug.WriteLine(response);
+                var response = await client.GetAsync(Url);
+                if (!response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(response);
+                }
+
+                Debug.WriteLine(await response.Content.ReadAsStringAsync());
+
+                return JsonConvert.DeserializeObject<List<Project>>(
+                    await response.Content.ReadAsStringAsync());
             }
-
-            Debug.WriteLine(await response.Content.ReadAsStringAsync());
-
-            return JsonConvert.DeserializeObject<List<Item>>(
-                await response.Content.ReadAsStringAsync());
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+            return null;
         }
 
-        public Task<bool> UpdateItemAsync(Item item)
+        public Task<bool> UpdateItemAsync(Project item)
         {
             throw new NotImplementedException();
         }
