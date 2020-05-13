@@ -17,6 +17,7 @@
             <Label Text="Project" FontSize="Medium" />
             <Picker ItemsSource="{Binding Projects}"
                     ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedProject}"
                     x:Name="ProjectPicker" 
                     FontSize="Small" 
                     Margin="0"/>

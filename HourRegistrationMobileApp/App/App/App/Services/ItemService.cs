@@ -39,7 +39,7 @@ namespace App.Services
         public async Task<Item> AddItemAsync(Item item)
         {
             HttpClient client = GetClient();
-            var response = await client.PostAsync(Url,
+            var response = await client.PostAsync(Url + "RegisterHours",
                 new StringContent(JsonConvert.SerializeObject(item),
                 Encoding.UTF8, "application/json"));
 
@@ -65,9 +65,9 @@ namespace App.Services
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
         {
             HttpClient client = GetClient();
-            var param1 = "?EmployeeId="+ HttpUtility.UrlEncode("b6ef7666-716d-46a6-98c6-9c73c43be6ab");
-            Debug.WriteLine(Url + param1);
-            var response = await client.GetAsync(Url + param1);
+            var param1 = "?EmployeeId=" + HttpUtility.UrlEncode("b6ef7666-716d-46a6-98c6-9c73c43be6ab");
+            Debug.WriteLine(Url + "GetPreviousEntries" + param1);
+            var response = await client.GetAsync(Url + "GetPreviousEntries" + param1);
 
             if (!response.IsSuccessStatusCode)
             {
