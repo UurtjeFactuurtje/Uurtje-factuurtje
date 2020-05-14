@@ -13,7 +13,7 @@ namespace App.Services
 
     class ProjectService : IDataStore<Project>
     {
-        const string Url = "https://192.168.2.20:32770/api/ProjectModels/";
+        const string Url = "https://192.168.2.20:32776/api/ProjectModels/";
 
         private HttpClient GetClient()
         {
@@ -41,14 +41,33 @@ namespace App.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> DeleteItemAsync(string id)
+        public Task<bool> DeleteItemAsync(String id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Project> GetItemAsync(string id)
+        async public Task<Project> GetItemAsync(String id)
         {
-            throw new NotImplementedException();
+            HttpClient client = GetClient();
+            try
+            {
+                var response = await client.GetAsync(Url+id);
+                Debug.WriteLine(Url + id);
+                if (!response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(response);
+                }
+
+                Debug.WriteLine(await response.Content.ReadAsStringAsync());
+
+                return JsonConvert.DeserializeObject<Project>(
+                    await response.Content.ReadAsStringAsync());
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+            return null;
         }
 
         async public Task<IEnumerable<Project>> GetItemsAsync(bool forceRefresh = false)

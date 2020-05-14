@@ -49,8 +49,10 @@ namespace App.ViewModels
             {
                 Items.Clear();
                 var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                foreach (Item item in items)
                 {
+                    Project project = await ProjectDataStore.GetItemAsync(item.ProjectId.ToString());
+                    item.ProjectName = project.Name;
                     Items.Add(item);
                 }
             }

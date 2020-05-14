@@ -20,6 +20,7 @@ namespace App.Views
         public Item Item { get; set; }
         public ObservableCollection<Project> Projects { get; set; }
         public IDataStore<Project> ProjectDataStore => DependencyService.Get<IDataStore<Project>>();
+        public Project SelectedProject { get; set; }
 
 
         public NewItemPage()
@@ -31,7 +32,6 @@ namespace App.Views
             Item = new Item
             {
                 CompanyId = Guid.NewGuid(),
-                ProjectId = Guid.NewGuid(),
                 EmployeeId = Guid.Parse("b6ef7666-716d-46a6-98c6-9c73c43be6ab"),
                 Description = "This is an item description.",
             };
@@ -44,6 +44,7 @@ namespace App.Views
             
             Item.StartTime = DatePickerView.Date + PickerStartTime.Time;
             Item.EndTime = DatePickerView.Date + PickerEndTime.Time;
+            Item.ProjectId = SelectedProject.Id;
             MessagingCenter.Send(this, "AddItem", Item);
             await Navigation.PopModalAsync();
         }
