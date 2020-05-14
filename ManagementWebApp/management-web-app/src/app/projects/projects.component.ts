@@ -17,7 +17,8 @@ export class ProjectsComponent implements OnInit {
     this.addProjectForm = this.formBuilder.group({
       projectName: 'Name',
       projectDescription: 'Description',
-      projectStartDate: '2020-05-14T00:00'
+      projectStartDate: '2020-05-14T00:00',
+      projectEndDate: '2020-05-14T00:00'
     });
    }
 
@@ -33,6 +34,7 @@ export class ProjectsComponent implements OnInit {
     this.addProject.Name = projectInfo.projectName;
     this.addProject.Description = projectInfo.projectDescription;
     this.addProject.StartDate = projectInfo.projectStartDate;
+    this.addProject.EndDate = projectInfo.projectEndDate;
     this.projectService.addProject(this.addProject).subscribe(res => console.log(res));
     this.refresh();
   }
