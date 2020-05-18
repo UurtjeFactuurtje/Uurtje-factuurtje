@@ -37,7 +37,7 @@ namespace HourRegistrationConsumer
                     var consumer = new EventingBasicConsumer(channel);
                     consumer.Received += (model, ea) =>
                     {
-                        var body = ea.Body;
+                        var body = ea.Body.ToArray();
                         var message = Encoding.UTF8.GetString(body);
                         HourRegistrationModel retrievedModel = GetModelFromBody(body);
 
@@ -105,7 +105,7 @@ namespace HourRegistrationConsumer
                     connection = factory.CreateConnection();
                     connectionSuccess = true;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     connectionSuccess = false;
                 }

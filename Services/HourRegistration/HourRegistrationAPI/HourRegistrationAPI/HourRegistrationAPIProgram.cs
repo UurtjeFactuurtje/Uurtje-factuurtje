@@ -14,7 +14,7 @@ namespace HourRegistrationAPI
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("http://localhost:9999").UseStartup<Startup>();
                 });
     }
 }

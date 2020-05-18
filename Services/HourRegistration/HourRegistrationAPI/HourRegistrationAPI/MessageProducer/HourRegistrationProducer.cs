@@ -30,7 +30,7 @@ namespace HourRegistrationAPI.MessageProducer
                     _connection = factory.CreateConnection();
                     connectionSuccess = true;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     connectionSuccess = false;
                 }
@@ -52,7 +52,7 @@ namespace HourRegistrationAPI.MessageProducer
                     GetConnection(_factory);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("No connection established yet");
                 GetConnection(_factory);

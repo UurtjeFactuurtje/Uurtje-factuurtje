@@ -1,0 +1,41 @@
+﻿//{
+//    "GlobalConfiguration": {
+//        "BaseUrl": "apigateway"
+//    },
+//    "ReRoutes": [
+//        {
+//            "DownstreamPathTemplate": "/api/hourinput",
+//            "DownstreamScheme": "http",
+//            "ServiceName": "hourregistrationapi",
+//            "UpstreamPathTemplate": "/api/hourinput",
+//            "UpstreamScheme": "https"
+//        }
+//    ]
+//}
+
+
+{
+    "ReRoutes": [
+        {
+            "UseServiceDiscovery": true,
+            "DownstreamPathTemplate": "/{url}",
+            "DownstreamScheme": "http",
+            "ServiceName": "hourregistrationapi",
+            "LoadBalancerOptions": {
+                "Type": "RoundRobin"
+            },
+            "UpstreamPathTemplate": "/{url}",
+            "UpstreamHttpMethod": [ "Get" ],
+            "ReRoutesCaseSensitive": false
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "localhost",
+        "ServiceDiscoveryProvider": {
+            "Host": "localhost",
+            "Port": 8500,
+            "Type": "PollConsul",
+            "PollingInterval": 100
+        }
+    }
+}  

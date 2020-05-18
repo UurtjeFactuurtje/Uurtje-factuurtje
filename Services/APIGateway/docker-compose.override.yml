@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  hourregistrationapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ServiceConfig__serviceDiscoveryAddress=http://localhost:8500
+      - ServiceConfig__serviceAddress=http://localhost:80
+      - ServiceConfig__serviceName=hourregistrationapi
+      - ServiceConfig__serviceId=hourregistrationapi-v1
+    ports:
+      - "80"
+
+#  hourregistrationconsumer:
+#    environment:
+#      - ASPNETCORE_ENVIRONMENT=Development
+#      - ServiceConfig__serviceDiscoveryAddress=http://consul:8500
+#      - ServiceConfig__serviceAddress=http://hourregistrationconsumer:80
+#      - ServiceConfig__serviceName=hourregistrationconsumer
+#      - ServiceConfig__serviceId=hourregistrationconsumer-v1
+#    ports:
+#      - "80"
+
+  apigateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80:80"
+
+  consul:
+    ports:
+      - "8500"
