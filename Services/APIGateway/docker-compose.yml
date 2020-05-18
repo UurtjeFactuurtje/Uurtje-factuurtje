@@ -1,0 +1,53 @@
+version: '3.4'
+
+services:
+    apigateway:
+        image: ${DOCKER_REGISTRY-}apigateway
+        container_name: APIGateway
+        build:
+            context: .
+            dockerfile: APIGateway/Dockerfile
+        ports:
+        - "80:80"
+
+    rabbitmq:
+        image: rabbitmq:3-management-alpine
+        container_name: Rabbitmq
+
+    cassandra:
+        image: ${DOCKER_REGISTRY-}cassandrahourregistration
+        container_name: HourRegistrationCassandraDB
+        build:
+            context: .
+            dockerfile: "../HourRegistration/HourRegistrationAPI/Cassandra/Dockerfile"
+        user: "cassandra"
+        volumes: 
+        - ../HourRegistration/HourRegistrationAPI/Cassandra/ :/usr/local/bin/
+
+    hourregistrationapi:
+        image: ${DOCKER_REGISTRY-}hourregistrationapi
+        build:
+            context: .
+            dockerfile: "../HourRegistration/HourRegistrationAPI/HourRegistrationAPI/Dockerfile"
+        depends_on: 
+        - rabbitmq
+
+    hourregistrationconsumer:
+        image: ${DOCKER_REGISTRY-}hourregistrationconsumer
+        build:
+            context: .
+            dockerfile: "../HourRegistration/HourRegistrationAPI/HourRegistrationConsumer/Dockerfile"
+        depends_on: 
+        - rabbitmq
+        - cassandra
+
+    management:
+        image: ${DOCKER_REGISTRY-}management
+        build:
+            context: .
+            dockerfile: "../Management/ManagementService/ManagementService/Dockerfile"
+
+networks:
+  default:
+    external:
+      name: hourregistrationnetwork

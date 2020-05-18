@@ -1,0 +1,45 @@
+{
+    "ReRoutes": [
+        {
+            "DownstreamPathTemplate": "/api/hourinput/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "hourregistrationapi",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/api/hourinput/{everything}",
+            "UpstreamScheme": "http"
+        },
+        {
+            "DownstreamPathTemplate": "/api/ProjectModels",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "management",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/api/ProjectModels",
+            "UpstreamScheme": "http"
+        },
+        {
+            "DownstreamPathTemplate": "/api/ProjectModels/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "management",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/api/ProjectModels/{everything}",
+            "UpstreamScheme": "http"
+        }
+
+    ],
+    "GlobalConfiguration": {
+        "Host": "apigateway",
+        "Port": 80
+    }
+}

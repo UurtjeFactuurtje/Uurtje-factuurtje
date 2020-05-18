@@ -3,19 +3,20 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
+EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["ManagementService/ManagementService.csproj", "ManagementService/"]
-RUN dotnet restore "ManagementService/ManagementService.csproj"
+COPY ["APIGateway/APIGateway.csproj", "APIGateway/"]
+RUN dotnet restore "APIGateway/APIGateway.csproj"
 COPY . .
-WORKDIR "/src/ManagementService"
-RUN dotnet build "ManagementService.csproj" -c Release -o /app/build
+WORKDIR "/src/APIGateway"
+RUN dotnet build "APIGateway.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ManagementService.csproj" -c Release -o /app/publish
+RUN dotnet publish "APIGateway.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ManagementService.dll"]
+ENTRYPOINT ["dotnet", "APIGateway.dll"]
