@@ -45,6 +45,7 @@ namespace App.Views
             Item.StartTime = DatePickerView.Date + PickerStartTime.Time;
             Item.EndTime = DatePickerView.Date + PickerEndTime.Time;
             Item.ProjectId = SelectedProject.Id;
+            Item.ProjectName = SelectedProject.Name;
             MessagingCenter.Send(this, "AddItem", Item);
             await Navigation.PopModalAsync();
         }
