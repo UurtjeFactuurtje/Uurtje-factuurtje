@@ -10,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProjectService {
-  projectsApiUrl = 'https://localhost:32820/api/ProjectModels';
+  projectsApiUrl = 'http://localhost:80/api/ProjectModels';
 
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(this.projectsApiUrl);
