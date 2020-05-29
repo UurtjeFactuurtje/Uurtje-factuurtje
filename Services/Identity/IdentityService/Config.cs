@@ -5,7 +5,7 @@
 using IdentityServer4.Models;
 using System.Collections.Generic;
 
-namespace IdentityServer
+namespace IdentityService
 {
     public static class Config
     {
@@ -17,11 +17,21 @@ namespace IdentityServer
 
         public static IEnumerable<ApiResource> Apis =>
             new ApiResource[] 
-            { };
+            {
+                new ApiResource("managementapi", "Management API"),
+                new ApiResource("hourregstrationapi", "Hour Registration API")
+            };
         
         public static IEnumerable<Client> Clients =>
             new Client[] 
-            { };
+            { 
+                new Client
+                {
+                    ClientId = "WebAPP"
+
+
+                }
+            };
         
     }
 }

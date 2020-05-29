@@ -22,7 +22,11 @@
                 }
             ],
             "UpstreamPathTemplate": "/api/ProjectModels",
-            "UpstreamScheme": "http"
+            "UpstreamScheme": "http",
+            "AuthenticationOptions": {
+            "AuthenticationProviderKey": "TestKey",
+            "AllowedScopes": []
+            }
         },
         {
             "DownstreamPathTemplate": "/api/ProjectModels/{everything}",
@@ -34,7 +38,11 @@
                 }
             ],
             "UpstreamPathTemplate": "/api/ProjectModels/{everything}",
-            "UpstreamScheme": "http"
+            "UpstreamScheme": "http",
+            "AuthenticationOptions": {
+            "AuthenticationProviderKey": "TestKey",
+            "AllowedScopes": []
+            }
         }
 
     ],

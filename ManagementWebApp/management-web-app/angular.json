@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "management-web-app"
+    }
+  },
+  "defaultProject": "management-web-app",
+  "cli": {
+    "analytics": false
+  }
 }

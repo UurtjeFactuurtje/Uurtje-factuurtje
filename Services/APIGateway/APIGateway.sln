@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIGateway", "APIGateway\APIGateway.csproj", "{54327316-5652-4CF0-91BE-3E279CBED627}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIGateway", "APIGateway\APIGateway.csproj", "{54327316-5652-4CF0-91BE-3E279CBED627}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HourRegistrationAPI", "..\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\HourRegistrationAPI.csproj", "{EEA8E121-9252-4880-AF2A-6FE3334F7BB2}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementService", "..\Management\ManagementService\ManagementService\ManagementService.csproj", "{B99804CE-A123-46D7-BA16-11E7B6E1BD37}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4C322C0E-BA86-447D-B633-5855E57996DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService", "..\Identity\IdentityService\IdentityService.csproj", "{0D260B18-6637-4096-ACDD-4C706B68E389}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{4C322C0E-BA86-447D-B633-5855E57996DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C322C0E-BA86-447D-B633-5855E57996DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C322C0E-BA86-447D-B633-5855E57996DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D260B18-6637-4096-ACDD-4C706B68E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D260B18-6637-4096-ACDD-4C706B68E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D260B18-6637-4096-ACDD-4C706B68E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D260B18-6637-4096-ACDD-4C706B68E389}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

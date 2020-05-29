@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj": {}
+    "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj": {}
   },
   "projects": {
-    "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj": {
+    "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj",
+        "projectUniqueName": "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj",
         "projectName": "HourRegistrationAPI",
-        "projectPath": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj",
-        "packagesPath": "C:\\Users\\Lisa\\.nuget\\packages\\",
-        "outputPath": "F:\\Users\\Lisa\\Documents\\GitHub\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\obj\\",
+        "projectPath": "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\HourRegistrationAPI.csproj",
+        "packagesPath": "C:\\Users\\royti\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\Uurtje-factuurtje\\Services\\HourRegistration\\HourRegistrationAPI\\HourRegistrationAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Lisa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\royti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -86,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
