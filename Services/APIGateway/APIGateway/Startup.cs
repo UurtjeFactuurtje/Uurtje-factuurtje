@@ -23,19 +23,6 @@ namespace APIGateway
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            var authenticationProviderKey = "TestKey";
-            Action<IdentityServerAuthenticationOptions> options = o =>
-            {
-                o.Authority = Configuration["IDENTITY_AUTHORITY"];
-                o.ApiName = "api";
-                o.SupportedTokens = SupportedTokens.Both;
-                o.ApiSecret = "secret";
-            };
-
-            services.AddAuthentication()
-                .AddIdentityServerAuthentication(authenticationProviderKey, options);
-
             services.AddOcelot(Configuration);
         }
 
