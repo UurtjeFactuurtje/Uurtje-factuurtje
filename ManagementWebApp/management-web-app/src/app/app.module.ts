@@ -12,13 +12,17 @@ import { LoginComponent } from './login/login.component';
 import { FakeBackendProvider} from './helpers/fake-backend'
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { TeamsComponent } from './teams/teams.component';
+import { PeopleComponent } from './people/people.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectsComponent,
-    LoginComponent
+    LoginComponent,
+    TeamsComponent,
+    PeopleComponent
   ],
   imports: [
     BrowserModule,

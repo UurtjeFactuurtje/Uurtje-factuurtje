@@ -6,21 +6,15 @@ using System.Threading.Tasks;
 
 namespace ManagementService.Models
 {
-    public class ProjectModel
+    public class PeopleModel
     {
         [Key]
         public Guid Id { get; set; }
 
         [Required]
-        public string Name { get; set; }
-
-        public string Description { get; set; }
+        public string FirstName { get; set; }
 
         [Required]
-        public DateTime? StartDate { get; set; }
-
-        public DateTime? EndDate { get; set; }
-
-        public IEnumerable<TeamModel> TeamsOnProject { get; set; }
+        public string LastName { get; set; }
     }
 }

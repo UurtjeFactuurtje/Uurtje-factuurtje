@@ -1,3 +1,4 @@
+import { Team } from './team';
 export class Project {
     public constructor(init?: Partial<Project>) {
         Object.assign(this, init);
@@ -8,6 +9,7 @@ export class Project {
     Description: string;
     StartDate: Date;
     EndDate: Date;
+    TeamsOnProject: Array<Team>;
 }
 
 export interface Project {
@@ -16,4 +18,5 @@ export interface Project {
     Description: string;
     StartDate: Date;
     EndDate: Date;
+    TeamsOnProject: Array<Team>;
 }
