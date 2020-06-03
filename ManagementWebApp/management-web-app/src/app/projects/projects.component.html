@@ -38,10 +38,10 @@
             <h2 style="text-align: center;">Active projects</h2>
             <mat-grid-list cols="3" rowHeight="250">
                 <mat-grid-tile *ngFor="let project of projects">
-                    <div class="card mb-4 shadow-sm" style="width: 95%; height: 80%;">
+                    <div class="card mb-4 shadow-sm" style="width: 95%; height: 90%;">
                         <div class="card-body">
                             <h5 class="card-title">{{project.name}} Details</h5>
-                            <p class="card-text">{{project.description}}</p>
+                            <p class="card-text scroll">{{project.description}}</p>
                         </div>
 
                         <div class="card-footer">

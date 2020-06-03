@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PeopleService } from '../services/people.service';
+import { People } from '../interfaces/people';
 
 @Component({
   selector: 'app-people',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeopleComponent implements OnInit {
 
-  constructor() { }
+  peoples: People[];
+  columnsToDisplay = ['firstName', 'lastName', 'Id'];
 
-  ngOnInit(): void {
+  constructor(private peopleService: PeopleService) {
+   }
+
+  getPeople(): void {
+    this.peopleService.getPeople()
+    .subscribe(peoples => this.peoples = peoples);
   }
 
+  ngOnInit(): void {
+    this.getPeople();
+  }
 }
