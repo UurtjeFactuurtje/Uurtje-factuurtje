@@ -43,7 +43,7 @@ namespace ManagementService
                             .AddIdentityServerAuthentication(
                                 opt =>
                                 {
-                                    opt.Authority = "http://identityserver";
+                                    opt.Authority = "identityserver";
                                     opt.RequireHttpsMetadata = false;
                                     opt.ApiName = "managementapi";
                                 });

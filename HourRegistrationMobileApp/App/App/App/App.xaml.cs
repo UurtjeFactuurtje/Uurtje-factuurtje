@@ -3,6 +3,11 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using App.Services;
 using App.Views;
+using Xamarin.Auth;
+using System.Net.Http;
+using System.Linq;
+using Xamarin.Auth.Presenters;
+using System.Diagnostics;
 
 namespace App
 {
@@ -16,31 +21,69 @@ namespace App
         public App()
         {
             InitializeComponent();
-            if (!IsUserLoggedIn)
-            {
-                MainPage = new NavigationPage(new LoginPage());
-            }
-            else
-            {
-                DependencyService.Register<ItemService>();
-                DependencyService.Register<ProjectService>();
-                MainPage = new MainPage();
-            }
-
             MessagingCenter.Subscribe<object>(this, EVENT_LAUNCH_LOGIN_PAGE, SetLoginPageAsRootPage);
             MessagingCenter.Subscribe<object>(this, EVENT_LAUNCH_MAIN_PAGE, SetMainPageAsRootPage);
         }
-
+        public static Account AuthAccount { get; set; }
+        public static HttpClient Client = new HttpClient(new HttpClientHandler()
+        {
+            ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+            {
+                //bypass
+                return true;
+            }
+        }, false);
         protected override void OnStart()
         {
+            var oAuth = new OAuth2AuthenticatorEx("xamarin-client", "offline_access hourregistrationapi",
+                new Uri("http://192.168.2.23:32772/connect/authorize"), new Uri("http://192.168.2.23:32772/grants"))
+            {
+                AccessTokenUrl = new Uri("http://192.168.2.23:32772/connect/token"),
+                ShouldEncounterOnPageLoading = false
+            };
+            var account = AccountStore.Create().FindAccountsForService("AuthServer");
+            if (account != null && account.Any())
+            {
+                AuthAccount = account.First();
+                Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {AuthAccount.Properties["access_token"]}");
+                MessagingCenter.Send<object>(this, App.EVENT_LAUNCH_MAIN_PAGE);
+            }
+            else
+            {
+                try
+                {
+                    var presenter = new OAuthLoginPresenter();
+                    presenter.Completed += Presenter_Completed;
+                    presenter.Login(oAuth);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                }
+            }
+        }
+
+        private void Presenter_Completed(object sender, AuthenticatorCompletedEventArgs e)
+        {
+            if (e.IsAuthenticated)
+            {
+
+                AuthAccount = e.Account;
+                Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {AuthAccount.Properties["access_token"]}");
+                //    await AccountStore.Create().SaveAsync(e.Account, "AuthServer");
+                MessagingCenter.Send<object>(this, App.EVENT_LAUNCH_MAIN_PAGE);
+
+            }
         }
 
         protected override void OnSleep()
         {
+            // Handle when your app sleeps
         }
 
         protected override void OnResume()
         {
+            // Handle when your app resumes
         }
 
         private void SetLoginPageAsRootPage(object sender)

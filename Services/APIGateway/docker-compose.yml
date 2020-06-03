@@ -9,6 +9,7 @@ services:
             dockerfile: "../Identity/IdentityService/Dockerfile"
         ports:
         - "32772:80"
+        - "33773:433"
 
     apigateway:
         image: ${DOCKER_REGISTRY-}apigateway

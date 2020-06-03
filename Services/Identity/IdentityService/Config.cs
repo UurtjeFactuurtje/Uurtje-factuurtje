@@ -11,37 +11,97 @@ namespace IdentityService
     {
         public static IEnumerable<IdentityResource> Ids =>
             new IdentityResource[]
-            { 
-                new IdentityResources.OpenId()
+            {
+                new IdentityResources.OpenId(),
+                new IdentityResources.Profile(),
             };
 
+
         public static IEnumerable<ApiResource> Apis =>
-            new ApiResource[] 
+            new ApiResource[]
             {
-                new ApiResource("managementapi", "Management API"),
-                new ApiResource("hourregstrationapi", "Hour Registration API")
+                new ApiResource("api1", "My API #1"),
+                new ApiResource("hourregistrationapi", "Hour Registration API")
             };
-        
+
+
         public static IEnumerable<Client> Clients =>
-            new Client[] 
-            { 
+            new Client[]
+            {
+                // client credentials flow client
                 new Client
                 {
                     ClientId = "client",
+                    ClientName = "Client Credentials Client",
 
-                    // no interactive user, use the clientid/secret for authentication
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
 
-                    // secret for authentication
-                    ClientSecrets =
+                    AllowedScopes = { "api1" }
+                },
+
+                // MVC client using code flow + pkce
+                new Client
+                {
+                    ClientId = "mvc",
+                    ClientName = "MVC Client",
+
+                    AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
+                    RequirePkce = true,
+                    ClientSecrets = { new Secret("49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256()) },
+
+                    RedirectUris = { "http://localhost:5003/signin-oidc" },
+                    FrontChannelLogoutUri = "http://localhost:5003/signout-oidc",
+                    PostLogoutRedirectUris = { "http://localhost:5003/signout-callback-oidc" },
+
+                    AllowOfflineAccess = true,
+                    AllowedScopes = { "openid", "profile", "api1" }
+                },
+
+                // SPA client using code flow + pkce
+                new Client
+                {
+                    ClientId = "spa",
+                    ClientName = "SPA Client",
+                    ClientUri = "http://identityserver.io",
+
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+
+                    RedirectUris =
                     {
-                        new Secret("secret".Sha256())
+                        "http://localhost:5002/index.html",
+                        "http://localhost:5002/callback.html",
+                        "http://localhost:5002/silent.html",
+                        "http://localhost:5002/popup.html",
                     },
 
-                    // scopes that client has access to
-                    AllowedScopes = { "managemnetapi" }
+                    PostLogoutRedirectUris = { "http://localhost:5002/index.html" },
+                    AllowedCorsOrigins = { "http://localhost:5002" },
+
+                    AllowedScopes = { "openid", "profile", "api1" }
+                },
+
+                // Xamrin client
+                new Client
+                {
+                    ClientId = "xamarin-client",
+                    ClientName = "Xamarin Client",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    AllowedScopes = { "openid", "profile", "hourregistrationapi" },
+                    AllowAccessTokensViaBrowser = true,
+                    AllowOfflineAccess = true,
+                    AlwaysIncludeUserClaimsInIdToken = true,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+
+                    RedirectUris =
+                    {
+                        "http://localhost:32772/grants",
+                        "http://192.168.2.23:32772/grants",
+                    },
                 }
             };
-        
     }
 }
