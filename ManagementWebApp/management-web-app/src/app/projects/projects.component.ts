@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
 import { Project } from '../interfaces/project';
 import { FormBuilder, FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -17,8 +18,8 @@ export class ProjectsComponent implements OnInit {
     this.addProjectForm = this.formBuilder.group({
       projectName: 'Name',
       projectDescription: 'Description',
-      projectStartDate: '2020-05-14T00:00',
-      projectEndDate: '2020-05-14T00:00'
+      projectStartDate: '',
+      projectEndDate: ''
     });
    }
 
@@ -36,15 +37,14 @@ export class ProjectsComponent implements OnInit {
     this.addProject.StartDate = projectInfo.projectStartDate;
     this.addProject.EndDate = projectInfo.projectEndDate;
     this.projectService.addProject(this.addProject).subscribe(res => console.log(res));
-    this.refresh();
   }
-
-  refresh(): void {
-    window.location.reload();
-}
 
   ngOnInit(): void {
     this.getProjects();
-  }
 
+    this.projectService.refreshNeeded$
+    .subscribe(() => {
+      this.getProjects();
+    });
+  }
 }

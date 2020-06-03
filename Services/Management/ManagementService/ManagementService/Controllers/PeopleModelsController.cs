@@ -13,9 +13,9 @@ namespace ManagementService.Controllers
     [ApiController]
     public class PeopleModelsController : ControllerBase
     {
-        private readonly PeopleContext _context;
+        private readonly ManagementContext _context;
 
-        public PeopleModelsController(PeopleContext context)
+        public PeopleModelsController(ManagementContext context)
         {
             _context = context;
         }

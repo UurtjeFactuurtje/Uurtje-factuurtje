@@ -13,9 +13,9 @@ namespace ManagementService.Controllers
     [ApiController]
     public class ProjectModelsController : ControllerBase
     {
-        private readonly ProjectContext _context;
+        private readonly ManagementContext _context;
 
-        public ProjectModelsController(ProjectContext context)
+        public ProjectModelsController(ManagementContext context)
         {
             _context = context;
         }

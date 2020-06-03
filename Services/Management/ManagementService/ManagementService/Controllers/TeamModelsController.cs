@@ -13,9 +13,9 @@ namespace ManagementService.Controllers
     [ApiController]
     public class TeamModelsController : ControllerBase
     {
-        private readonly TeamContext _context;
+        private readonly ManagementContext _context;
 
-        public TeamModelsController(TeamContext context)
+        public TeamModelsController(ManagementContext context)
         {
             _context = context;
         }
@@ -83,6 +83,33 @@ namespace ManagementService.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTeamModel", new { id = teamModel.Id }, teamModel);
+        }
+
+        // POST: api/TeamModels
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [HttpPost]
+        [Route("addPeople/{id}")]
+        public async Task<ActionResult<TeamModel>> AddPeopleToTeam(Guid id, PeopleModel people)
+        {
+            var team = await _context.Teams.FindAsync(id);
+            if (team.EmployeesInTeam == null)
+            {
+                team.EmployeesInTeam = new List<PeopleModel>();
+            }
+
+            var person = await _context.People.FindAsync(people.Id);
+            if (team.EmployeesInTeam.Contains(person))
+            {
+                return AcceptedAtAction("AddPeopleToTeam", team);
+            }
+
+            team.EmployeesInTeam.Add(person);
+
+            await PutTeamModel(id, team);
+
+
+            return CreatedAtAction("AddPeopleToTeam", team);
         }
 
         // DELETE: api/TeamModels/5

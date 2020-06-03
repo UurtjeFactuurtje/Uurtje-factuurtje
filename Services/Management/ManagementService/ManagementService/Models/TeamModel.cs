@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,11 @@ namespace ManagementService.Models
         [Required]
         public string Name { get; set; }
 
-        public IEnumerable<PeopleModel> EmployeesInTeam { get; set; }
+        public List<PeopleModel> EmployeesInTeam { get; set; }
+
+        public TeamModel()
+        {
+            EmployeesInTeam = new List<PeopleModel>();
+        }
     }
 }

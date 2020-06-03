@@ -31,9 +31,7 @@ namespace ManagementService
                                       .AllowAnyMethod();
                                   });
             });
-            services.AddDbContext<ProjectContext>(opt => opt.UseInMemoryDatabase("ProjectList"));
-            services.AddDbContext<PeopleContext>(opt => opt.UseInMemoryDatabase("PeopleList"));
-            services.AddDbContext<TeamContext>(opt => opt.UseInMemoryDatabase("TeamList"));
+            services.AddDbContext<ManagementContext>(opt => opt.UseInMemoryDatabase("ManagementContext"));
             services.AddControllers();
         }
 
