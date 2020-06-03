@@ -24,7 +24,7 @@ namespace ManagementService.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TeamModel>>> GetTeams()
         {
-            return await _context.Teams.ToListAsync();
+            return await _context.Teams.Include(e=>e.EmployeesInTeam).ToListAsync();
         }
 
         // GET: api/TeamModels/5
@@ -90,15 +90,11 @@ namespace ManagementService.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         [Route("addPeople/{id}")]
-        public async Task<ActionResult<TeamModel>> AddPeopleToTeam(Guid id, PeopleModel people)
+        public async Task<ActionResult<TeamModel>> AddPeopleToTeam(Guid id, PeopleModel peopleModel)
         {
             var team = await _context.Teams.FindAsync(id);
-            if (team.EmployeesInTeam == null)
-            {
-                team.EmployeesInTeam = new List<PeopleModel>();
-            }
 
-            var person = await _context.People.FindAsync(people.Id);
+            var person = await _context.People.FindAsync(peopleModel.Id);
             if (team.EmployeesInTeam.Contains(person))
             {
                 return AcceptedAtAction("AddPeopleToTeam", team);

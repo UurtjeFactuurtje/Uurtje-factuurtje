@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
 import { Project } from '../interfaces/project';
-import { FormBuilder, FormControl } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-projects',
@@ -29,7 +28,7 @@ export class ProjectsComponent implements OnInit {
   }
   
   onSubmit(projectInfo) {
-    this.addProject = new Project();;
+    this.addProject = new Project();
     console.warn("Before", this.addProject);
 
     this.addProject.Name = projectInfo.projectName;

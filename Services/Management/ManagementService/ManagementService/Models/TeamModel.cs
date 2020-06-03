@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ManagementService.Models
 {
@@ -15,11 +12,6 @@ namespace ManagementService.Models
         [Required]
         public string Name { get; set; }
 
-        public List<PeopleModel> EmployeesInTeam { get; set; }
-
-        public TeamModel()
-        {
-            EmployeesInTeam = new List<PeopleModel>();
-        }
+        public List<PeopleModel> EmployeesInTeam { get; set; } = new List<PeopleModel>();
     }
 }

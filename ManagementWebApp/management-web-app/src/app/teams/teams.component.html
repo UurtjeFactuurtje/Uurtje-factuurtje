@@ -1,1 +1,38 @@
-<p>teams works!</p>
+<div class="container" style="margin: 2%; max-width: 95%;">
+    <div class="row align-items-start" style="width: 100%">
+        <div class="col">
+            <h2 style="text-align: center;">Add new team</h2>
+            <div class="card" style="margin-top: 45px;">
+                <div class="card-body">
+                    <form [formGroup]="addTeamForm" (ngSubmit)="onSubmit(addTeamForm.value)">
+                        <div class="form-group">
+                            <label for="teamName">Team name</label>
+                            <input type="text" class="form-control" id="teamName" placeholder="Team name"
+                                formControlName="teamName">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add new team</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-9 border-left">
+            <h2 style="text-align: center;">Active teams</h2>
+            <mat-grid-list cols="3" rowHeight="300px">
+                <mat-grid-tile *ngFor="let team of teams">
+                    <div class="card mb-4 shadow-sm scroll" style="width: 95%;">
+                        <h5 class="card-header">
+                            {{team.name}}
+                        </h5>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" *ngFor="let people of team.employeesInTeam">{{people.firstName}} {{people.lastName}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </div>
+</div>

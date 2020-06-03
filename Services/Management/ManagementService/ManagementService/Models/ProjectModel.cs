@@ -21,11 +21,6 @@ namespace ManagementService.Models
 
         public DateTime? EndDate { get; set; }
 
-        public ProjectModel()
-        {
-            TeamsOnProject = new List<TeamModel>();
-        }
-
-        public List<TeamModel> TeamsOnProject { get; set; }
+        public List<TeamModel> TeamsOnProject { get; set; } = new List<TeamModel>();
     }
 }
