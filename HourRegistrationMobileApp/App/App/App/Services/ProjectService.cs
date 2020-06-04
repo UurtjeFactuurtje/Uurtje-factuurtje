@@ -13,7 +13,7 @@ namespace App.Services
 
     class ProjectService : IDataStore<Project>
     {
-        const string Url = "https://192.168.2.20:80/api/ProjectModels/";
+        const string Url = "http://192.168.2.23:80/api/ProjectModels";
 
         public Task<Project> AddItemAsync(Project item)
         {
@@ -29,8 +29,8 @@ namespace App.Services
         {
             try
             {
-                var response = await App.Client.GetAsync(Url+id);
-                Debug.WriteLine(Url + id);
+                var response = await App.Client.GetAsync(Url+"/"+id);
+                Debug.WriteLine(Url + "/" + id);
                 if (!response.IsSuccessStatusCode)
                 {
                     Debug.WriteLine(response);
