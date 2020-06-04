@@ -13,17 +13,18 @@ namespace App.Services
 
     class ItemService : IDataStore<Item>
     {
-        const string Url = "http://192.168.2.20:80/api/hourinput/";
+        const string Url = "http://192.168.2.23:80/api/hourinput";
 
         public async Task<Item> AddItemAsync(Item item)
         {
-            var response = await App.Client.PostAsync(Url + "RegisterHours",
+            var response = await App.Client.PostAsync(Url + "/RegisterHours",
                 new StringContent(JsonConvert.SerializeObject(item),
                 Encoding.UTF8, "application/json"));
 
             if (!response.IsSuccessStatusCode)
             {
                 Debug.WriteLine(response);
+                return null;
             }
 
             return JsonConvert.DeserializeObject<Item>(
@@ -43,8 +44,8 @@ namespace App.Services
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
         {
             var param1 = "?EmployeeId=" + HttpUtility.UrlEncode("b6ef7666-716d-46a6-98c6-9c73c43be6ab");
-            Debug.WriteLine(Url + "GetPreviousEntries" + param1);
-            var response = await App.Client.GetAsync(Url + "GetPreviousEntries" + param1);
+            Debug.WriteLine(Url + "/GetPreviousEntries" + param1);
+            var response = await App.Client.GetAsync(Url + "/GetPreviousEntries" + param1);
 
             if (!response.IsSuccessStatusCode)
             {
