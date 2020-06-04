@@ -19,5 +19,19 @@ namespace App.Models
                 return this.StartTime.DayOfWeek.ToString();
                     }
         }
+        public TimeSpan StartTimeSpan
+        {
+            get
+            {
+                return this.StartTime.TimeOfDay;
+            }
+        }
+        public TimeSpan EndTimeSpan
+        {
+            get
+            {
+                return this.EndTime.TimeOfDay;
+            }
+        }
     }
 }

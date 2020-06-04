@@ -40,10 +40,10 @@
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" />
                             <StackLayout Orientation="Horizontal">
-                                <TimePicker Time="{Binding StartTime}" 
+                                <TimePicker Time="{Binding StartTimeSpan}" 
                                         Style="{DynamicResource ListItemDetailTextStyle}"
                                         FontSize="13" />
-                                <TimePicker Time="{Binding EndTime}" 
+                                <TimePicker Time="{Binding EndTimeSpan}" 
                                 
                                         Style="{DynamicResource ListItemDetailTextStyle}"
                                             FontSize="13" />
