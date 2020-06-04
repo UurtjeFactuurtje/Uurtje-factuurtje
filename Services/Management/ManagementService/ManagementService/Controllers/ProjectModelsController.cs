@@ -14,9 +14,9 @@ namespace ManagementService.Controllers
     [ApiController]
     public class ProjectModelsController : ControllerBase
     {
-        private readonly ProjectContext _context;
+        private readonly ManagementContext _context;
 
-        public ProjectModelsController(ProjectContext context)
+        public ProjectModelsController(ManagementContext context)
         {
             _context = context;
         }
@@ -25,7 +25,7 @@ namespace ManagementService.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProjectModel>>> GetProjects()
         {
-            return await _context.Projects.ToListAsync();
+            return await _context.Projects.Include(t=>t.TeamsOnProject).ThenInclude(e=>e.EmployeesInTeam).ToListAsync();
         }
 
         // GET: api/ProjectModels/5
@@ -72,6 +72,30 @@ namespace ManagementService.Controllers
             }
 
             return NoContent();
+        }
+
+        // POST: api/TeamModels
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [HttpPost]
+        [Route("addTeams/{id}")]
+        public async Task<ActionResult<TeamModel>> AddTeamToProject(Guid id, TeamModel teamModel)
+        {
+            var project = await _context.Projects.FindAsync(id);
+
+            var team = await _context.Teams.FindAsync(teamModel.Id);
+
+            if (project.TeamsOnProject.Contains(team))
+            {
+                return AcceptedAtAction("AddTeamToProject", project);
+            }
+
+            project.TeamsOnProject.Add(team);
+
+            await PutProjectModel(id, project);
+
+
+            return CreatedAtAction("AddTeamToProject", project);
         }
 
         // POST: api/ProjectModels

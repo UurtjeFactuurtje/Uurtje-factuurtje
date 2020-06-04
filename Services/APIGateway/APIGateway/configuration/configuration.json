@@ -35,8 +35,55 @@
             ],
             "UpstreamPathTemplate": "/api/ProjectModels/{everything}",
             "UpstreamScheme": "http"
+        },
+        {
+            "DownstreamPathTemplate": "/api/TeamModels",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "management",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/api/TeamModels",
+            "UpstreamScheme": "http"
+        },
+        {
+            "DownstreamPathTemplate": "/api/TeamModels/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "management",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/api/TeamModels/{everything}",
+            "UpstreamScheme": "http"
+        },
+        {
+            "DownstreamPathTemplate": "/api/PeopleModels",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "management",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/api/PeopleModels",
+            "UpstreamScheme": "http"
+        },
+        {
+            "DownstreamPathTemplate": "/api/PeopleModels/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "management",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/api/PeopleModels/{everything}",
+            "UpstreamScheme": "http"
         }
-
     ],
     "GlobalConfiguration": {
         "Host": "apigateway",

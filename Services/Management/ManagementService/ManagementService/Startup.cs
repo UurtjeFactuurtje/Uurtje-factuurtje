@@ -32,7 +32,7 @@ namespace ManagementService
                                       .AllowAnyMethod();
                                   });
             });
-            services.AddDbContext<ProjectContext>(opt => opt.UseInMemoryDatabase("ProjectList"));
+            services.AddDbContext<ManagementContext>(opt => opt.UseInMemoryDatabase("ManagementContext"));
             services.AddControllers();
 
             services.AddAuthentication(opt =>

@@ -1,0 +1,14 @@
+.scroll {
+  height: 90%;
+    overflow-y: scroll;
+}
+
+.mat-select-panel {
+    min-width: 180px !important;
+    max-width: 180px !important;
+    transform: translate(-2px, 44px) !important;
+    background-color: #fff !important;
+  }
+.mat-option{
+  background-color: #fff;
+}

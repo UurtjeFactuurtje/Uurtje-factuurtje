@@ -7,8 +7,8 @@
                     <form [formGroup]="addProjectForm" (ngSubmit)="onSubmit(addProjectForm.value)">
                         <div class="form-group">
                             <label for="projectName">Project name</label>
-                            <input type="text" class="form-control" id="projectName"
-                                placeholder="Project name" formControlName="projectName">
+                            <input type="text" class="form-control" id="projectName" placeholder="Project name"
+                                formControlName="projectName">
                         </div>
                         <div class="form-group">
                             <label for="projectDescription">Project description</label>
@@ -17,14 +17,14 @@
                         </div>
                         <div class="form-group">
                             <label for="projectStartDate">Start date</label>
-                            <input type="datetime-local" formControlName="projectStartDate" class="form-control" id="projectStartDate"
-                                placeholder="Start date">
+                            <input type="datetime-local" formControlName="projectStartDate" class="form-control"
+                                id="projectStartDate" placeholder="Start date">
                         </div>
 
                         <div class="form-group">
                             <label for="projectEndDate">End date</label>
-                            <input type="datetime-local" formControlName="projectEndDate" class="form-control" id="projectEndDate"
-                                placeholder="End date">
+                            <input type="datetime-local" formControlName="projectEndDate" class="form-control"
+                                id="projectEndDate" placeholder="End date">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Add new project</button>
@@ -34,15 +34,19 @@
             </div>
         </div>
 
-        <div class="col-9">
+        <div class="col-9 border-left">
             <h2 style="text-align: center;">Active projects</h2>
             <mat-grid-list cols="3" rowHeight="250">
                 <mat-grid-tile *ngFor="let project of projects">
-                    <div class="card mb-4 shadow-sm" style="width: 95%;">
+                    <div class="card mb-4 shadow-sm" style="width: 95%; height: 90%;">
                         <div class="card-body">
                             <h5 class="card-title">{{project.name}} Details</h5>
-                            <p class="card-text">{{project.description}}</p>
+                            <p class="card-text scroll">{{project.description}}</p>
+                        </div>
+
+                        <div class="card-footer">
                             <div class="d-flex justify-content-between align-items-center">
+
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
