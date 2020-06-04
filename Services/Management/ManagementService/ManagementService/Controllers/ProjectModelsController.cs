@@ -22,7 +22,6 @@ namespace ManagementService.Controllers
         }
 
         // GET: api/ProjectModels
-        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProjectModel>>> GetProjects()
         {
