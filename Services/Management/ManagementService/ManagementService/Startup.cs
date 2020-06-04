@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using ManagementService.Models;
+using IdentityServer4.AccessTokenValidation;
 
 namespace ManagementService
 {
@@ -33,6 +34,19 @@ namespace ManagementService
             });
             services.AddDbContext<ManagementContext>(opt => opt.UseInMemoryDatabase("ManagementContext"));
             services.AddControllers();
+
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme;
+                opt.DefaultAuthenticateScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme;
+            })
+                            .AddIdentityServerAuthentication(
+                                opt =>
+                                {
+                                    opt.Authority = "identityserver";
+                                    opt.RequireHttpsMetadata = false;
+                                    opt.ApiName = "managementapi";
+                                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +59,7 @@ namespace ManagementService
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseCors(MyAllowSpecificOrigins);

@@ -7,6 +7,9 @@ services:
         build:
             context: .
             dockerfile: "../Identity/IdentityService/Dockerfile"
+        ports:
+        - "32772:80"
+        - "33773:433"
 
     apigateway:
         image: ${DOCKER_REGISTRY-}apigateway
@@ -14,14 +17,8 @@ services:
         build:
             context: .
             dockerfile: APIGateway/Dockerfile
-        environment:
-            IDENTITY_AUTHORITY: "identityservice"
         ports:
         - "80:80"
-        links:
-        - identityservice
-        depends_on:
-        - "identityservice"
 
     rabbitmq:
         image: rabbitmq:3-management-alpine
@@ -44,6 +41,10 @@ services:
             dockerfile: "../HourRegistration/HourRegistrationAPI/HourRegistrationAPI/Dockerfile"
         depends_on: 
         - rabbitmq
+        links:
+        - identityservice
+        depends_on:
+        - "identityservice"
 
     hourregistrationconsumer:
         image: ${DOCKER_REGISTRY-}hourregistrationconsumer
@@ -59,3 +60,12 @@ services:
         build:
             context: .
             dockerfile: "../Management/ManagementService/ManagementService/Dockerfile"
+        links:
+        - identityservice
+        depends_on:
+        - "identityservice"
+
+networks:
+  default:
+    external:
+      name: hourregistrationnetwork

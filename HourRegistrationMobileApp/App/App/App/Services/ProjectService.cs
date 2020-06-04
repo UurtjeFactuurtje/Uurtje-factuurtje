@@ -13,28 +13,7 @@ namespace App.Services
 
     class ProjectService : IDataStore<Project>
     {
-        const string Url = "https://192.168.2.20:32776/api/ProjectModels/";
-
-        private HttpClient GetClient()
-        {
-            HttpClient client = new HttpClient(new HttpClientHandler()
-            {
-                ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
-                {
-                    //bypass
-                    return true;
-                }
-            }, false);
-            //if (string.IsNullOrEmpty(authorizationKey))
-            //{
-            //    authorizationKey = await client.GetStringAsync(Url + "login");
-            //    authorizationKey = JsonConvert.DeserializeObject<string>(authorizationKey);
-            //}
-
-            //client.DefaultRequestHeaders.Add("Authorization", authorizationKey);
-            client.DefaultRequestHeaders.Add("Accept", "application/json");
-            return client;
-        }
+        const string Url = "https://192.168.2.20:80/api/ProjectModels/";
 
         public Task<Project> AddItemAsync(Project item)
         {
@@ -48,10 +27,9 @@ namespace App.Services
 
         async public Task<Project> GetItemAsync(String id)
         {
-            HttpClient client = GetClient();
             try
             {
-                var response = await client.GetAsync(Url+id);
+                var response = await App.Client.GetAsync(Url+id);
                 Debug.WriteLine(Url + id);
                 if (!response.IsSuccessStatusCode)
                 {
@@ -72,10 +50,9 @@ namespace App.Services
 
         async public Task<IEnumerable<Project>> GetItemsAsync(bool forceRefresh = false)
         {
-            HttpClient client = GetClient();
             try
             {
-                var response = await client.GetAsync(Url);
+                var response = await App.Client.GetAsync(Url);
                 if (!response.IsSuccessStatusCode)
                 {
                     Debug.WriteLine(response);

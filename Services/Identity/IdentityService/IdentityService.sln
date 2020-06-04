@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService", "IdentityService.csproj", "{62F3786C-C819-419C-8E75-2A1385F0F848}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService", "IdentityService.csproj", "{A5FC7D05-86F2-4ECF-9E09-58CD5D9F2F24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{62F3786C-C819-419C-8E75-2A1385F0F848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62F3786C-C819-419C-8E75-2A1385F0F848}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62F3786C-C819-419C-8E75-2A1385F0F848}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62F3786C-C819-419C-8E75-2A1385F0F848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5FC7D05-86F2-4ECF-9E09-58CD5D9F2F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5FC7D05-86F2-4ECF-9E09-58CD5D9F2F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5FC7D05-86F2-4ECF-9E09-58CD5D9F2F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5FC7D05-86F2-4ECF-9E09-58CD5D9F2F24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A2CCEFC1-86D1-4D61-A24A-73B061FDD00D}
+		SolutionGuid = {D44FBF06-D0DE-41A0-ADFE-2CDF30697936}
 	EndGlobalSection
 EndGlobal

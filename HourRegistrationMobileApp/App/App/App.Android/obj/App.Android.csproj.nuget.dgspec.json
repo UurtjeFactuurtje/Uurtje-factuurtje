@@ -42,6 +42,22 @@
       "frameworks": {
         "monoandroid90": {
           "dependencies": {
+            "PCLCrypto": {
+              "target": "Package",
+              "version": "[2.0.147, )"
+            },
+            "Xamarin.Auth": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Auth.Extensions": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Auth.XamarinForms": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.3.1, )"
@@ -112,6 +128,22 @@
               "target": "Package",
               "version": "[12.0.3, )"
             },
+            "PCLCrypto": {
+              "target": "Package",
+              "version": "[2.0.147, )"
+            },
+            "Xamarin.Auth": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Auth.Extensions": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Auth.XamarinForms": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.3.1, )"
@@ -131,7 +163,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
