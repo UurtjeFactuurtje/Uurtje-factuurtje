@@ -21,8 +21,13 @@ namespace App
         public App()
         {
             InitializeComponent();
-            MessagingCenter.Subscribe<object>(this, EVENT_LAUNCH_LOGIN_PAGE, SetLoginPageAsRootPage);
-            MessagingCenter.Subscribe<object>(this, EVENT_LAUNCH_MAIN_PAGE, SetMainPageAsRootPage);
+            MainPage = new MainPage();
+
+            DependencyService.Register<ItemService>();
+            DependencyService.Register<ProjectService>();
+
+            //MessagingCenter.Subscribe<object>(this, EVENT_LAUNCH_LOGIN_PAGE, SetLoginPageAsRootPage);
+            //MessagingCenter.Subscribe<object>(this, EVENT_LAUNCH_MAIN_PAGE, SetMainPageAsRootPage);
         }
         public static Account AuthAccount { get; set; }
         public static HttpClient Client = new HttpClient(new HttpClientHandler()
@@ -46,7 +51,6 @@ namespace App
             {
                 AuthAccount = account.First();
                 Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {AuthAccount.Properties["access_token"]}");
-                MessagingCenter.Send<object>(this, App.EVENT_LAUNCH_MAIN_PAGE);
             }
             else
             {
@@ -71,8 +75,6 @@ namespace App
                 AuthAccount = e.Account;
                 Client.DefaultRequestHeaders.Add("Authorization", $"Bearer {AuthAccount.Properties["access_token"]}");
                 //    await AccountStore.Create().SaveAsync(e.Account, "AuthServer");
-                MessagingCenter.Send<object>(this, App.EVENT_LAUNCH_MAIN_PAGE);
-
             }
         }
 
@@ -83,7 +85,7 @@ namespace App
 
         protected override void OnResume()
         {
-            // Handle when your app resumes
+            MessagingCenter.Send<object>(this, App.EVENT_LAUNCH_MAIN_PAGE);
         }
 
         private void SetLoginPageAsRootPage(object sender)
@@ -93,8 +95,6 @@ namespace App
 
         private void SetMainPageAsRootPage(object sender)
         {
-            DependencyService.Register<ItemService>();
-            DependencyService.Register<ProjectService>();
             MainPage = new MainPage();
         }
     }

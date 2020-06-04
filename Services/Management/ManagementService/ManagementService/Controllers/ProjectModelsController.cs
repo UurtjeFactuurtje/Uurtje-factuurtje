@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ManagementService.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProjectModelsController : ControllerBase
@@ -23,6 +22,7 @@ namespace ManagementService.Controllers
         }
 
         // GET: api/ProjectModels
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProjectModel>>> GetProjects()
         {
