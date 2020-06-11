@@ -5,24 +5,25 @@ using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
 
 namespace HourRegistrationAPI.MessageProducer
 {
-    public class HourRegistrationProducer
+    public class HourRegistrationProducer : IHourRegistrationProducer
     {
         static ConnectionFactory _factory;
         static IConnection _connection;
 
         public HourRegistrationProducer()
-        { 
+        {
             _factory = new ConnectionFactory() { HostName = "rabbitmq" };
             _connection = null;
         }
 
-        bool GetConnection(ConnectionFactory factory)
+        public bool GetConnection(IConnectionFactory factory, int nrOfTries)
         {
             bool connectionSuccess = false;
-            while (!connectionSuccess)
+            while (!connectionSuccess && nrOfTries > 0)
             {
                 try
                 {
@@ -32,6 +33,9 @@ namespace HourRegistrationAPI.MessageProducer
                 catch (Exception e)
                 {
                     connectionSuccess = false;
+                    Console.Write(e.Message);
+                    Thread.Sleep(1000);
+                    nrOfTries = nrOfTries - 1;
                 }
             }
             return connectionSuccess;
@@ -48,13 +52,13 @@ namespace HourRegistrationAPI.MessageProducer
             {
                 if (!_connection.IsOpen)
                 {
-                    GetConnection(_factory);
+                    GetConnection(_factory, 30);
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine("No connection established yet");
-                GetConnection(_factory);
+                GetConnection(_factory, 30);
             }
 
             try
@@ -94,7 +98,7 @@ namespace HourRegistrationAPI.MessageProducer
             return success;
         }
 
-        private bool DataIsValid(HourRegistrationModel registeredHours)
+        public bool DataIsValid(HourRegistrationModel registeredHours)
         {
             bool valid = false;
             try
