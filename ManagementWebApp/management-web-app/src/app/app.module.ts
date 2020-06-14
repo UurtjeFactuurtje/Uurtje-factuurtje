@@ -41,6 +41,7 @@ import { PeopleComponent } from './people/people.component';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    HttpClientModule,
     //Fake backend for testing the login functionality
     FakeBackendProvider
   ],
