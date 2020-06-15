@@ -15,11 +15,11 @@ export class AppComponent {
 
   constructor(private authenticationService: AuthenticationService,
     private router: Router) {
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.authenticationService.name.subscribe(x => this.currentUser = x);
   }
 
   logout() {
-    this.authenticationService.logout();
+    this.authenticationService.signout();
     this.router.navigate(['/login']);
   }
 }

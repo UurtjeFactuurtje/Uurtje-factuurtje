@@ -1,37 +1,73 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-import { environment } from '@environments/environment';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { UserManager, UserManagerSettings, User } from 'oidc-client';
+import { BaseService } from '../shared/base.service';
+import { Config } from 'protractor';
+import { ConfigService } from '../shared/config.service';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
-export class AuthenticationService {
-    private currentUserSubject: BehaviorSubject<any>;
-    public currentUser: Observable<any>;
+export class AuthenticationService extends BaseService {
 
-    constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
-        this.currentUser = this.currentUserSubject.asObservable();
-    }
+  // Observable navItem source
+  private _authNavStatusSource = new BehaviorSubject<boolean>(false);
+  // Observable navItem stream
+  authNavStatus$ = this._authNavStatusSource.asObservable();
 
-    public get currentUserValue() {
-        return this.currentUserSubject.value;
-    }
+  private manager = new UserManager(getClientSettings());
+  private user: User | null;
 
-    login(username, password) {
-        return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { username, password })
-            .pipe(map(user => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                this.currentUserSubject.next(user);
-                return user;
-            }));
-    }
+  constructor(private http: HttpClient, private configService: ConfigService) {
+    super();
 
-    logout() {
-        // remove user from local storage and set current user to null
-        localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
-    }
+    this.manager.getUser().then(user => {
+      this.user = user;
+      this._authNavStatusSource.next(this.isAuthenticated());
+    });
+  }
+
+  login() {
+    return this.manager.signinRedirect();
+  }
+
+  async completeAuthentication() {
+    this.user = await this.manager.signinRedirectCallback();
+    this._authNavStatusSource.next(this.isAuthenticated());
+  }
+
+  register(userRegistration: any) {
+    return this.http.post(this.configService.authApiURI + '/account', userRegistration).pipe(catchError(this.handleError));
+  }
+
+  isAuthenticated(): boolean {
+    return this.user != null && !this.user.expired;
+  }
+
+  get authorizationHeaderValue(): string {
+    return `${this.user.token_type} ${this.user.access_token}`;
+  }
+
+  get name(): Observable<string> {
+    return of(this.user != null ? this.user.profile.name : '');
+  }
+
+  async signout() {
+    await this.manager.signoutRedirect();
+  }
+}
+
+export function getClientSettings(): UserManagerSettings {
+  return {
+    authority: 'http://localhost:5000',
+    client_id: 'angular_spa',
+    redirect_uri: 'http://localhost:4200/auth-callback',
+    post_logout_redirect_uri: 'http://localhost:4200/',
+    response_type: "id_token token",
+    scope: "openid profile email api.read",
+    filterProtocolClaims: true,
+    loadUserInfo: true,
+    automaticSilentRenew: true,
+    silent_redirect_uri: 'http://localhost:4200/silent-refresh.html'
+  };
 }
