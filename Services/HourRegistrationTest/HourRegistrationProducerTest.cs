@@ -2,10 +2,10 @@ using NUnit.Framework;
 using RabbitMQ.Client;
 using NSubstitute;
 using HourRegistrationAPI.MessageProducer;
-using RabbitMQ.Client.Framing.Impl;
-using NSubstitute.ExceptionExtensions;
 using System;
 using NSubstitute.ReceivedExtensions;
+using HourRegistrationAPI.Model;
+using System.Collections.Generic;
 
 namespace HourRegistrationTest
 {
@@ -19,10 +19,14 @@ namespace HourRegistrationTest
         IConnectionFactory _mockFactory;
         IConnection _mockConnection;
 
+        List<HourRegistrationModel> _invalidModelsList = new List<HourRegistrationModel>();
+        List<HourRegistrationModel> _validModelsList = new List<HourRegistrationModel>();
+
         [OneTimeSetUp]
         public void FixtureSetup()
         {
-            Console.WriteLine("Blablabla");
+            AddInvalidModels();
+            AddValidModels();
         }
 
         [SetUp]
@@ -68,11 +72,13 @@ namespace HourRegistrationTest
         /// </summary>
         [TestCase(0)]
         [TestCase(1)]
-        [TestCase(2)]
-        [TestCase(3)]
-        [TestCase(4)]
         public void DataIsValidTrueForValidData(int indexOfValidDataList)
-        { 
+        {
+            //Arrange
+            HourRegistrationModel model = _validModelsList[indexOfValidDataList];
+
+            //Act + Assert
+            Assert.True(_producer.DataIsValid(model));
         }
 
         /// <summary>
@@ -83,22 +89,109 @@ namespace HourRegistrationTest
         [TestCase (2)]
         [TestCase (3)]
         [TestCase (4)]
+        [TestCase (5)]
         public void DataIsValidFalseForInvalidData(int indexOfInvalidDataList)
         {
-        }
+            //Arrange
+            HourRegistrationModel model = _invalidModelsList[indexOfInvalidDataList];
 
-        /// <summary>
-        /// Tests if production of message returns true if the message was produced
-        /// </summary>
-        [Test]
-        public void ProduceHourRegistrationMessageReturnsTrueForSuccessfullAttempt()
-        { }
+            //Act + Assert
+            Assert.False(_producer.DataIsValid(model));
+        }
 
         /// <summary>
         /// Tests if production of message returns false if the message was not produced
         /// </summary>
         [Test]
         public void ProduceHourRegistrationMessageReturnsFalseForUnsuccessfullAttempt()
-        { }
+        {
+            //Arrange + Act + Assert
+            Assert.False(_producer.ProduceHourRegistrationMessage(_invalidModelsList[0]));
+        }
+
+        public void AddInvalidModels()
+        {
+            var model = new HourRegistrationModel
+            {
+                CompanyId = "invalid",
+                EmployeeId = Guid.NewGuid().ToString(),
+                ProjectId = Guid.NewGuid().ToString(),
+                StartTime = DateTime.Now,
+                EndTime = DateTime.Now,
+                Description = "Valid description"
+            };
+            var model1 = new HourRegistrationModel
+            {
+                CompanyId = Guid.NewGuid().ToString(),
+                EmployeeId = "invalid",
+                ProjectId = Guid.NewGuid().ToString(),
+                StartTime = DateTime.Now,
+                EndTime = DateTime.Now,
+                Description = "Valid description"
+            };
+            var model2 = new HourRegistrationModel
+            {
+                CompanyId = Guid.NewGuid().ToString(),
+                EmployeeId = Guid.NewGuid().ToString(),
+                ProjectId = "invalid",
+                StartTime = DateTime.Now,
+                EndTime = DateTime.Now,
+                Description = "Valid description"
+            };
+            var model3 = new HourRegistrationModel
+            {
+                CompanyId = Guid.NewGuid().ToString(),
+                EmployeeId = Guid.NewGuid().ToString(),
+                ProjectId = Guid.NewGuid().ToString(),
+                Description = "Valid description"
+            };
+            var model4 = new HourRegistrationModel
+            {
+                CompanyId = Guid.NewGuid().ToString(),
+                EmployeeId = Guid.NewGuid().ToString(),
+                StartTime = DateTime.Now,
+                EndTime = DateTime.Now,
+                Description = "Valid description"
+            };
+            var model5 = new HourRegistrationModel
+            {
+                CompanyId = Guid.NewGuid().ToString(),
+                EmployeeId = Guid.NewGuid().ToString(),
+                ProjectId = Guid.NewGuid().ToString(),
+                StartTime = DateTime.Now,
+                EndTime = DateTime.Now.AddMonths(-1),
+                Description = "Valid description"
+            };
+
+            _invalidModelsList.Add(model);
+            _invalidModelsList.Add(model1);
+            _invalidModelsList.Add(model2);
+            _invalidModelsList.Add(model3);
+            _invalidModelsList.Add(model4);
+            _invalidModelsList.Add(model5);
+        }
+
+        public void AddValidModels()
+        {
+            var model = new HourRegistrationModel
+            {
+                CompanyId = Guid.NewGuid().ToString(),
+                EmployeeId = Guid.NewGuid().ToString(),
+                ProjectId = Guid.NewGuid().ToString(),
+                StartTime = DateTime.Now,
+                EndTime = DateTime.Now
+            };
+            var model1 = new HourRegistrationModel
+            {
+                CompanyId = Guid.NewGuid().ToString(),
+                EmployeeId = Guid.NewGuid().ToString(),
+                ProjectId = Guid.NewGuid().ToString(),
+                StartTime = DateTime.Now,
+                EndTime = DateTime.Now,
+                Description = "Valid description"
+            };
+            _validModelsList.Add(model);
+            _validModelsList.Add(model1);
+        }
     }
 }
