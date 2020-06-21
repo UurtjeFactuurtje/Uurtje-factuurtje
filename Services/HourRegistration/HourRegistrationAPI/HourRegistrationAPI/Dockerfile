@@ -23,7 +23,7 @@ ENV PATH="$PATH:/root/.dotnet/tools"
 RUN dotnet sonarscanner begin \
   /k:"$SONAR_PROJECT_KEY" \
   /o:"$SONAR_OGRANIZAION_KEY" \
-  /d:sonar.host.url="$SONAR_HOST_URL" \
+  /d:sonar.host.url="https://sonarcloud.io" \
   /d:sonar.login="$SONAR_TOKEN" \
   /d:sonar.cs.opencover.reportsPaths=/coverage.opencover.xml
   
