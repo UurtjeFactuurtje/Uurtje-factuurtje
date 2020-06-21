@@ -7,6 +7,21 @@ steps:
         .
   failOnStderr: true
   displayName: 'docker build'
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'CI Pipeline test'
+    organization: 'uurtjefactuurtje'
+    scannerMode: 'MSBuild'
+    projectKey: 'roytimmers.visualstudio.com.sonarexamples.netfx'
+    projectName: 'Hour Registration'
+    
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'  
+
+- task: SonarCloudAnalyze@1
+
 - bash: |
     echo $(registryPassword) | docker login \
         $(registryServerName) \
