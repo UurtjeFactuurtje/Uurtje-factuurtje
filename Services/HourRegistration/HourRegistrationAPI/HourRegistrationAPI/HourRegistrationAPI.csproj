@@ -12,6 +12,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>false</Optimize>
+	  <ProjectGuid>{50dd37ad-58dd-4697-84ec-f28fb5935b50}</ProjectGuid>
   </PropertyGroup>
 
   <ItemGroup>
