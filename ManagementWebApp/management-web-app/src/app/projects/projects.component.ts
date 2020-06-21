@@ -29,7 +29,6 @@ export class ProjectsComponent implements OnInit {
   
   onSubmit(projectInfo) {
     this.addProject = new Project();
-    console.warn("Before", this.addProject);
 
     this.addProject.Name = projectInfo.projectName;
     this.addProject.Description = projectInfo.projectDescription;
