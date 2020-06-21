@@ -33,10 +33,10 @@ RUN dotnet restore "HourRegistrationAPI/HourRegistrationAPI.csproj"
 WORKDIR "/src/HourRegistrationAPI"
 RUN dotnet build "HourRegistrationAPI.csproj" -c Release -o /app/build
 
+RUN dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
+
 FROM build AS publish
 RUN dotnet publish "HourRegistrationAPI.csproj" -c Release -o /app/publish
-
-RUN dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
 
 FROM base AS final
 WORKDIR /app
