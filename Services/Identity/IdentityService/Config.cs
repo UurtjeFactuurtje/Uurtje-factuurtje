@@ -21,7 +21,9 @@ namespace IdentityService
             new ApiResource[]
             {
                 new ApiResource("api1", "My API #1"),
-                new ApiResource("hourregistrationapi", "Hour Registration API")
+                new ApiResource("hourregistrationapi", "Hour Registration API"),
+                new ApiResource("managementapi", "Management API")
+
             };
 
 
@@ -101,6 +103,19 @@ namespace IdentityService
                         "http://localhost:32772/grants",
                         "http://192.168.2.23:32772/grants",
                     },
+                },
+
+                // Angular client
+                new Client {
+                 ClientId = "angular_spa",
+                 ClientName = "Angular SPA",
+                 AllowedGrantTypes = GrantTypes.Implicit,
+                 AllowedScopes = { "openid", "profile", "managementapi" },
+                 RedirectUris = {"http://localhost:4200/auth-callback"},
+                 PostLogoutRedirectUris = {"http://localhost:4200/"},
+                 AllowedCorsOrigins = {"http://localhost:4200"},
+                 AllowAccessTokensViaBrowser = true,
+                 AccessTokenLifetime = 3600
                 }
             };
     }

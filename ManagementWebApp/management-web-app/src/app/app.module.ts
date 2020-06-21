@@ -8,15 +8,18 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ConfigService } from './shared/config.service';
+
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routes/app-routing.module';
 import { ProjectsComponent } from './projects/projects.component';
 import { LoginComponent } from './login/login.component';
-import { FakeBackendProvider} from './helpers/fake-backend'
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { TeamsComponent } from './teams/teams.component';
 import { PeopleComponent } from './people/people.component';
+import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import { PeopleComponent } from './people/people.component';
     ProjectsComponent,
     LoginComponent,
     TeamsComponent,
-    PeopleComponent
+    PeopleComponent,
+    AuthCallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +43,9 @@ import { PeopleComponent } from './people/people.component';
     BrowserAnimationsModule
   ],
   providers: [
+    ConfigService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    //Fake backend for testing the login functionality
-    FakeBackendProvider
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

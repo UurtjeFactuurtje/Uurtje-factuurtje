@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.spinner.show();
+    this.authenticationService.login();
   }
 
   ngOnInit() {

@@ -59,12 +59,12 @@ export class AuthenticationService extends BaseService {
 
 export function getClientSettings(): UserManagerSettings {
   return {
-    authority: 'http://localhost:5000',
+    authority: 'http://localhost:32772',
     client_id: 'angular_spa',
     redirect_uri: 'http://localhost:4200/auth-callback',
     post_logout_redirect_uri: 'http://localhost:4200/',
     response_type: "id_token token",
-    scope: "openid profile email api.read",
+    scope: "openid profile managementapi",
     filterProtocolClaims: true,
     loadUserInfo: true,
     automaticSilentRenew: true,
