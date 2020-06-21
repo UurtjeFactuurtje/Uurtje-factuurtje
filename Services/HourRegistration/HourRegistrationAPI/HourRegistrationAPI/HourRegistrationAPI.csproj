@@ -7,11 +7,12 @@
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
     <ApplicationIcon />
     <OutputType>Exe</OutputType>
-    <StartupObject>HourRegistrationAPI.HourRegistrationAPIProgram</StartupObject>
+    <StartupObject>HourRegistrationAPI.HourRegistrationAPIProgram</StartupObject>	  
+	<ProjectGuid>{22749b3a-7fbc-43fc-9d60-0d6e7292f757}</ProjectGuid>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>false</Optimize>
+	  <Optimize>false</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
