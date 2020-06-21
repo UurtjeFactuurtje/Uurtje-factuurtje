@@ -24,7 +24,7 @@ RUN dotnet sonarscanner begin \
   /k:"$SONAR_PROJECT_KEY" \
   /o:"$SONAR_OGRANIZAION_KEY" \
   /d:sonar.host.url="https://sonarcloud.io" \
-  /d:sonar.login="$SONAR_TOKEN" \
+  /d:sonar.login="xxxxx" \
   /d:sonar.cs.opencover.reportsPaths=/coverage.opencover.xml
   
 RUN dotnet restore "HourRegistrationAPI/HourRegistrationAPI.csproj"
@@ -35,7 +35,7 @@ RUN dotnet build "HourRegistrationAPI.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "HourRegistrationAPI.csproj" -c Release -o /app/publish
 
-RUN dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
+RUN dotnet sonarscanner end /d:sonar.login="$xxxxx"
 
 FROM base AS final
 WORKDIR /app
