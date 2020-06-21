@@ -5,7 +5,7 @@ ARG SONAR_OGRANIZAION_KEY=uurtjefactuurtje
 ARG SONAR_HOST_URL=https://sonarcloud.io
 ARG SONAR_TOKEN
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster AS base
 WORKDIR /app
 EXPOSE 80
 
