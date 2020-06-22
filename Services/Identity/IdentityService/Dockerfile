@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 
-ARG SONAR_PROJECT_KEY=IdentityService
+ARG SONAR_PROJECT_KEY=Identity
 ARG SONAR_OGRANIZAION_KEY=uurtjefactuurtje
 ARG SONAR_HOST_URL=https://sonarcloud.io
 ARG SONAR_TOKEN
