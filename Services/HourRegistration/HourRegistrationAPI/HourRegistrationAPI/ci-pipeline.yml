@@ -6,7 +6,6 @@ trigger:
   paths:
     include: 
     - Services/HourRegistration/HourRegistrationAPI/HourRegistrationAPI/
-    - Services/HourRegistrationTest/
     - Services/common/ci-steps-template.yml
     
 pr: none
