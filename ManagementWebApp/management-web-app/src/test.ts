@@ -8,6 +8,7 @@ import {
 } from '@angular/platform-browser-dynamic/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { RouterTestingModule } from '@angular/router/testing';
 
 declare const require: {
@@ -18,7 +19,7 @@ declare const require: {
 };
 
 beforeEach(() => getTestBed().configureTestingModule({
-  imports: [HttpClientTestingModule, ReactiveFormsModule, RouterTestingModule]
+  imports: [HttpClientTestingModule, ReactiveFormsModule, RouterTestingModule ]
 }));
 
 // First, initialize the Angular testing environment.

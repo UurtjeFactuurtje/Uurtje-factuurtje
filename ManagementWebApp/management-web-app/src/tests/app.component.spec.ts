@@ -1,4 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
+import { ConfigService } from '../app/shared/config.service';
 import { AppComponent } from '../app/app.component';
 
 describe('AppComponent', () => {
@@ -7,6 +8,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers:[ConfigService]
     }).compileComponents();
   }));
 
