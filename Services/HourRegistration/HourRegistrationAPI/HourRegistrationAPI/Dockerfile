@@ -12,7 +12,7 @@ ARG SONAR_HOST_URL=https://sonarcloud.io
 ARG SONAR_TOKEN
 
 WORKDIR /src
-COPY HourRegistration/HourRegistrationAPI/HourRegistrationAPI/ ./HourRegistrationAPI/
+COPY HourRegistration/HourRegistrationAPI/HourRegistrationAPI/ ./HourRegistration/HourRegistrationAPI/HourRegistrationAPI/
 COPY HourRegistrationTest ./HourRegistrationTest/
 #COPY ["./HourRegistrationAPI/HourRegistrationAPI.csproj", "HourRegistrationAPI/"]
 
@@ -22,9 +22,9 @@ RUN dotnet tool install --global dotnet-sonarscanner
 RUN dotnet tool install --global coverlet.console
 ENV PATH="$PATH:/root/.dotnet/tools"
   
-RUN dotnet restore "HourRegistrationAPI/HourRegistrationAPI.csproj"
+RUN dotnet restore "HourRegistration/HourRegistrationAPI/HourRegistrationAPI/HourRegistrationAPI.csproj"
 #COPY . .
-WORKDIR "/src/HourRegistrationAPI"
+WORKDIR "/src/HourRegistration/HourRegistrationAPI/HourRegistrationAPI"
 
 RUN dotnet sonarscanner begin \
   /k:"$SONAR_PROJECT_KEY" \
