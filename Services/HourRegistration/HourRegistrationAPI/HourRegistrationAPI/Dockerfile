@@ -5,6 +5,7 @@ WORKDIR /app
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+RUN ls
 
 ARG SONAR_PROJECT_KEY=Service-HourRegistration
 ARG SONAR_OGRANIZAION_KEY=uurtjefactuurtje
@@ -14,6 +15,7 @@ ARG SONAR_TOKEN
 WORKDIR /src
 COPY . ./HourRegistrationAPI/
 COPY . ./HourRegistrationTest/
+RUN ls
 #COPY ["./HourRegistrationAPI/HourRegistrationAPI.csproj", "HourRegistrationAPI/"]
 
 RUN mkdir -p /usr/share/man/man1
@@ -33,6 +35,7 @@ RUN dotnet sonarscanner begin \
   /d:sonar.login="$SONAR_TOKEN" \
   /d:sonar.cs.opencover.reportsPaths=/coverage.opencover.xml
 RUN dotnet build "HourRegistrationAPI.csproj" -c Release -o /app/build
+RUN ls
 RUN dotnet test ../../HourRegistrationTest/HourRegstrationTest.csproj -c Release --logger "trx;LogFileName=testresults.trx"
 RUN dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
 
