@@ -13,7 +13,7 @@ ARG SONAR_HOST_URL=https://sonarcloud.io
 ARG SONAR_TOKEN
 
 WORKDIR /src
-COPY . /IdentityService/ ["IdentityService.csproj", ""]
+COPY . .
 
 RUN mkdir -p /usr/share/man/man1
 RUN apt-get update && apt-get install -y openjdk-11-jdk
@@ -23,7 +23,7 @@ RUN dotnet tool install --global coverlet.console
 ENV PATH="$PATH:/root/.dotnet/tools"
 
 RUN dotnet restore "./IdentityService.csproj"
-COPY . .
+#COPY . .
 WORKDIR "/src/."
  
 RUN dotnet sonarscanner begin \
