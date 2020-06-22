@@ -13,7 +13,7 @@ ARG SONAR_TOKEN
 
 WORKDIR /src
 COPY HourRegistration/HourRegistrationAPI/HourRegistrationAPI/ ./HourRegistrationAPI/
-RUN ls HourRegistration/HourRegistrationAPI/HourRegistrationAPI
+RUN ls HourRegistrationAPI
 COPY HourRegistrationTest ./HourRegistrationTest/
 RUN ls
 RUN ls HourRegistrationTest
