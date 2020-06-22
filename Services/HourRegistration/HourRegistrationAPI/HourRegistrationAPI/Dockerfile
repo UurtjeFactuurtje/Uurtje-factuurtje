@@ -34,6 +34,7 @@ RUN dotnet sonarscanner begin \
   /d:sonar.cs.opencover.reportsPaths=/coverage.opencover.xml
 RUN dotnet build "HourRegistrationAPI.csproj" -c Release -o /app/build
 WORKDIR "/src/HourRegistrationTest"
+RUN ls
 RUN dotnet test "HourRegistrationTest.csproj" -c Release --logger "trx;LogFileName=testresults.trx"
 WORKDIR "/src/HourRegistrationAPI"
 RUN dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
