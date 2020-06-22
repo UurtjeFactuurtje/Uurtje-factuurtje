@@ -12,8 +12,8 @@ ARG SONAR_HOST_URL=https://sonarcloud.io
 ARG SONAR_TOKEN
 
 WORKDIR /src
-RUN ls
 COPY . ./HourRegistrationAPI/
+RUN ls
 COPY ../HourRegistrationTest ./HourRegistrationTest/
 #COPY ["./HourRegistrationAPI/HourRegistrationAPI.csproj", "HourRegistrationAPI/"]
 
