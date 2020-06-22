@@ -15,6 +15,8 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService", "..\Identity\IdentityService\IdentityService.csproj", "{0D260B18-6637-4096-ACDD-4C706B68E389}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HourRegistrationTest", "..\HourRegistrationTest\HourRegistrationTest.csproj", "{9EA68822-D061-4214-9D31-F10966B75B8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{0D260B18-6637-4096-ACDD-4C706B68E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D260B18-6637-4096-ACDD-4C706B68E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D260B18-6637-4096-ACDD-4C706B68E389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EA68822-D061-4214-9D31-F10966B75B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EA68822-D061-4214-9D31-F10966B75B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EA68822-D061-4214-9D31-F10966B75B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EA68822-D061-4214-9D31-F10966B75B8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
