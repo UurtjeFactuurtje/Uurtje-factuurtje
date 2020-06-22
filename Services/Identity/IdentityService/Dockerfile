@@ -24,7 +24,7 @@ ENV PATH="$PATH:/root/.dotnet/tools"
 RUN dotnet restore "./IdentityService.csproj"
 COPY . .
 WORKDIR "/src/."
-
+ 
 RUN dotnet sonarscanner begin \
   /k:"$SONAR_PROJECT_KEY" \
   /o:"$SONAR_OGRANIZAION_KEY" \
