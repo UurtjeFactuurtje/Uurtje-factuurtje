@@ -17,7 +17,7 @@ COPY ["IdentityService.csproj", ""]
 
 RUN mkdir -p /usr/share/man/man1
 RUN apt-get update && apt-get install -y openjdk-11-jdk
-RUN apt-get install nodejs npm
+RUN apt-get update && apt-get install -y nodejs npm
 RUN dotnet tool install --global dotnet-sonarscanner
 RUN dotnet tool install --global coverlet.console
 ENV PATH="$PATH:/root/.dotnet/tools"
