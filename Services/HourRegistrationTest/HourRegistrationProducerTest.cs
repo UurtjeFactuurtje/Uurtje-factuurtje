@@ -1,10 +1,10 @@
+using HourRegistrationAPI.MessageProducer;
+using HourRegistrationAPI.Model;
+using NSubstitute;
+using NSubstitute.ReceivedExtensions;
 using NUnit.Framework;
 using RabbitMQ.Client;
-using NSubstitute;
-using HourRegistrationAPI.MessageProducer;
 using System;
-using NSubstitute.ReceivedExtensions;
-using HourRegistrationAPI.Model;
 using System.Collections.Generic;
 
 namespace HourRegistrationTest
@@ -53,7 +53,7 @@ namespace HourRegistrationTest
         /// <summary>
         /// Tests if GetConnection tries the specified amount of times before deciding it is not going to work. 
         /// </summary>
-        [TestCase (3)]
+        [TestCase(3)]
         public void GetConnectionTriesExpectedAmountOfTimes(int nrOfTries)
         {
             //Arrange
@@ -84,12 +84,12 @@ namespace HourRegistrationTest
         /// <summary>
         /// Tests is DataIsValid returns false if the data is invalid
         /// </summary>
-        [TestCase (0)]
-        [TestCase (1)]
-        [TestCase (2)]
-        [TestCase (3)]
-        [TestCase (4)]
-        [TestCase (5)]
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        [TestCase(4)]
+        [TestCase(5)]
         public void DataIsValidFalseForInvalidData(int indexOfInvalidDataList)
         {
             //Arrange

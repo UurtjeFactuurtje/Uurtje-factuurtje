@@ -1,10 +1,10 @@
-﻿using HourRegistrationAPI.MessageProducer;
+﻿using Cassandra;
+using HourRegistrationAPI.MessageProducer;
 using HourRegistrationAPI.Model;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Cassandra;
-using System;
 
 namespace HourRegistrationAPI.Controllers
 {
@@ -92,7 +92,7 @@ namespace HourRegistrationAPI.Controllers
         {
             HourRegistrationModel model = new HourRegistrationModel();
 
-            model.CompanyId= row.GetValue<Guid>("company_id").ToString();
+            model.CompanyId = row.GetValue<Guid>("company_id").ToString();
             model.ProjectId = row.GetValue<Guid>("project_id").ToString();
             model.EmployeeId = row.GetValue<Guid>("employee_id").ToString();
             model.Description = row.GetValue<string>("description");

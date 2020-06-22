@@ -14,7 +14,7 @@ namespace HourRegistrationConsumer
     {
         static public void Main()
         {
-           
+
             var factory = new ConnectionFactory() { HostName = "rabbitmq" };
             factory.AutomaticRecoveryEnabled = true;
 
@@ -108,6 +108,7 @@ namespace HourRegistrationConsumer
                 catch (Exception e)
                 {
                     connectionSuccess = false;
+                    Console.WriteLine(e.Message);
                 }
             }
             return connection;
@@ -116,7 +117,7 @@ namespace HourRegistrationConsumer
         static ISession GetCassandraSession(Cluster cluster)
         {
             bool success = false;
-            ISession session = null; 
+            ISession session = null;
 
             while (!success)
             {
@@ -125,7 +126,7 @@ namespace HourRegistrationConsumer
                     session = cluster.Connect();
                     success = true;
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Console.WriteLine($"Couldn't connect to the cluster {e.Message}");
                 }
