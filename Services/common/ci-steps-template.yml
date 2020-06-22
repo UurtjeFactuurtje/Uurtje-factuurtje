@@ -1,8 +1,8 @@
 steps:
 - bash: |
     cd Services
-    cd $(projectPath)
-    docker build -f \
+    docker build \
+        -f $(projectPath)
         -t $(registryServerName)/$(imageName):$(imageTag) \
         . --build-arg SONAR_TOKEN=40b3b57cd87776829e4bd47f4f3fd45084a8ec2c
   failOnStderr: true
