@@ -6,14 +6,20 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 
+ARG SONAR_PROJECT_KEY=Hour-Registration
+ARG SONAR_OGRANIZAION_KEY=uurtjefactuurtje
+ARG SONAR_HOST_URL=https://sonarcloud.io
+ARG SONAR_TOKEN
+
+WORKDIR /src
+COPY ["ManagementService/ManagementService.csproj", "ManagementService/"]
+
 RUN mkdir -p /usr/share/man/man1
 RUN apt-get update && apt-get install -y openjdk-11-jdk
 RUN dotnet tool install --global dotnet-sonarscanner
 RUN dotnet tool install --global coverlet.console
 ENV PATH="$PATH:/root/.dotnet/tools
 
-WORKDIR /src
-COPY ["ManagementService/ManagementService.csproj", "ManagementService/"]
 RUN dotnet restore "ManagementService/ManagementService.csproj"
 COPY . .
 WORKDIR "/src/ManagementService"
