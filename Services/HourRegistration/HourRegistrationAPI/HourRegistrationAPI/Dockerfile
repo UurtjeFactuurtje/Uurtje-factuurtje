@@ -5,7 +5,6 @@ WORKDIR /app
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
-RUN ls
 
 ARG SONAR_PROJECT_KEY=Service-HourRegistration
 ARG SONAR_OGRANIZAION_KEY=uurtjefactuurtje
