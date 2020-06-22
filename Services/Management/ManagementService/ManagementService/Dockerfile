@@ -12,7 +12,8 @@ ARG SONAR_HOST_URL=https://sonarcloud.io
 ARG SONAR_TOKEN
 
 WORKDIR /src
-COPY ["ManagementService/ManagementService.csproj", "ManagementService/"]
+COPY . ./ManagementService/
+#COPY ["ManagementService/ManagementService.csproj", "ManagementService/"]
 
 RUN mkdir -p /usr/share/man/man1
 RUN apt-get update && apt-get install -y openjdk-11-jdk
@@ -21,7 +22,7 @@ RUN dotnet tool install --global coverlet.console
 ENV PATH="$PATH:/root/.dotnet/tools
 
 RUN dotnet restore "ManagementService/ManagementService.csproj"
-COPY . .
+#COPY . .
 WORKDIR "/src/ManagementService"
 
 RUN dotnet sonarscanner begin \
