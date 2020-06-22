@@ -6,6 +6,9 @@ import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 declare const require: {
   context(path: string, deep?: boolean, filter?: RegExp): {
@@ -13,6 +16,10 @@ declare const require: {
     <T>(id: string): T;
   };
 };
+
+beforeEach(() => getTestBed().configureTestingModule({
+  imports: [HttpClientTestingModule, ReactiveFormsModule, RouterTestingModule]
+}));
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(

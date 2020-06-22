@@ -4,23 +4,9 @@ steps:
     cd $(projectPath)
     docker build \
         -t $(registryServerName)/$(imageName):$(imageTag) \
-        .
+        . --build-arg SONAR_TOKEN=40b3b57cd87776829e4bd47f4f3fd45084a8ec2c
   failOnStderr: true
   displayName: 'docker build'
-
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'CI Pipeline test'
-    organization: 'uurtjefactuurtje'
-    scannerMode: 'MSBuild'
-    projectKey: 'roytimmers.visualstudio.com.sonarexamples.netfx'
-    projectName: 'Hour Registration'
-    
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'  
-
-- task: SonarCloudAnalyze@1
 
 - bash: |
     echo $(registryPassword) | docker login \

@@ -45,7 +45,8 @@ import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
   providers: [
     ConfigService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

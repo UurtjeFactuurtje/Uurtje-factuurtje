@@ -17,7 +17,20 @@ namespace HourRegistrationAPI.MessageProducer
         public HourRegistrationProducer()
         {
             _factory = new ConnectionFactory() { HostName = "rabbitmq" };
-            _connection = null;
+        }
+
+        public bool ProduceHourRegistrationMessage(HourRegistrationModel registeredHours)
+        {
+            if (!DataIsValid(registeredHours))
+            { return false; }
+
+            if (!GetConnection(_factory, 30))
+            { return false; }
+
+            if (!SendMessage(registeredHours))
+            { return false; }
+
+            return true;
         }
 
         public bool GetConnection(IConnectionFactory factory, int nrOfTries)
@@ -33,33 +46,18 @@ namespace HourRegistrationAPI.MessageProducer
                 catch (Exception e)
                 {
                     connectionSuccess = false;
-                    Console.Write(e.Message);
+                    Console.WriteLine($"No connection could be created, the following exception was caught: {e.Message}");
                     Thread.Sleep(1000);
                     nrOfTries = nrOfTries - 1;
                 }
             }
+
             return connectionSuccess;
         }
 
-        public bool ProduceHourRegistrationMessage(HourRegistrationModel registeredHours)
+        private bool SendMessage(HourRegistrationModel registeredHours)
         {
-            if (!DataIsValid(registeredHours))
-            { return false; }
-
-            bool success = true;
-
-            try
-            {
-                if (!_connection.IsOpen)
-                {
-                    GetConnection(_factory, 30);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("No connection established yet");
-                GetConnection(_factory, 30);
-            }
+            bool messageWasWritten = false;
 
             try
             {
@@ -86,16 +84,17 @@ namespace HourRegistrationAPI.MessageProducer
                                          body: body);
                     Console.WriteLine("Following message was sent to queue:");
                     Console.WriteLine(message.Description);
+                    messageWasWritten = true;
                 }
             }
 
             catch (Exception e)
             {
                 Console.WriteLine($"Exception was caught when sending a message to the queue: {e.Message}");
-                success = false;
+                messageWasWritten = false;
             }
 
-            return success;
+            return messageWasWritten;
         }
 
         public bool DataIsValid(HourRegistrationModel registeredHours)
