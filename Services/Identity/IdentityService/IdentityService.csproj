@@ -5,6 +5,7 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
     <UserSecretsId>1c98d866-5046-429d-b04e-f868d05744bf</UserSecretsId>
+ 	<ProjectGuid>{05879c8f-35ec-4ac3-a796-cd5ec59e3ece}</ProjectGuid>
   </PropertyGroup>
 
   <ItemGroup>
