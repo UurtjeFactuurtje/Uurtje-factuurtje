@@ -1,12 +1,10 @@
-﻿using System;
+﻿using ManagementService.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ManagementService.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace ManagementService.Controllers
 {
@@ -25,7 +23,7 @@ namespace ManagementService.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProjectModel>>> GetProjects()
         {
-            return await _context.Projects.Include(t=>t.TeamsOnProject).ThenInclude(e=>e.EmployeesInTeam).ToListAsync();
+            return await _context.Projects.Include(t => t.TeamsOnProject).ThenInclude(e => e.EmployeesInTeam).ToListAsync();
         }
 
         // GET: api/ProjectModels/5
