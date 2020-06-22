@@ -6,7 +6,7 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 
-ARG SONAR_PROJECT_KEY=Hour-Registration
+ARG SONAR_PROJECT_KEY=Management
 ARG SONAR_OGRANIZAION_KEY=uurtjefactuurtje
 ARG SONAR_HOST_URL=https://sonarcloud.io
 ARG SONAR_TOKEN
