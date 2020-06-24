@@ -14,17 +14,25 @@ export class AuthenticationService extends BaseService {
   private _authNavStatusSource = new BehaviorSubject<boolean>(false);
   // Observable navItem stream
   authNavStatus$ = this._authNavStatusSource.asObservable();
-
+  
   private manager = new UserManager(getClientSettings());
+  userName = new BehaviorSubject<string>("");
   private user: User | null;
 
   constructor(private http: HttpClient, private configService: ConfigService) {
     super();
-
+    this.manager.getUser
     this.manager.getUser().then(user => {
       this.user = user;
       this._authNavStatusSource.next(this.isAuthenticated());
+      this.userName.next(this.user.profile.name);
+      console.log(this.user.profile.name);
     });
+  }
+
+  getUserName(): Observable<String> {
+    return this.userName.asObservable();
+    console.log(this.user.profile.name);
   }
 
   login() {
@@ -34,6 +42,8 @@ export class AuthenticationService extends BaseService {
   async completeAuthentication() {
     this.user = await this.manager.signinRedirectCallback();
     this._authNavStatusSource.next(this.isAuthenticated());
+    this.userName.next(this.user.profile.name);
+    console.log(this.user.profile.name);
   }
 
   register(userRegistration: any) {
@@ -46,10 +56,6 @@ export class AuthenticationService extends BaseService {
 
   get authorizationHeaderValue(): string {
     return `${this.user.token_type} ${this.user.access_token}`;
-  }
-
-  get name(): Observable<string> {
-    return of(this.user != null ? this.user.profile.name : '');
   }
 
   async signout() {
