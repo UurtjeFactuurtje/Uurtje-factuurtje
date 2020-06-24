@@ -26,13 +26,11 @@ export class AuthenticationService extends BaseService {
       this.user = user;
       this._authNavStatusSource.next(this.isAuthenticated());
       this.userName.next(this.user.profile.name);
-      console.log(this.user.profile.name);
     });
   }
 
   getUserName(): Observable<String> {
     return this.userName.asObservable();
-    console.log(this.user.profile.name);
   }
 
   login() {
@@ -41,9 +39,9 @@ export class AuthenticationService extends BaseService {
 
   async completeAuthentication() {
     this.user = await this.manager.signinRedirectCallback();
+    console.log(this.user);
     this._authNavStatusSource.next(this.isAuthenticated());
     this.userName.next(this.user.profile.name);
-    console.log(this.user.profile.name);
   }
 
   register(userRegistration: any) {
