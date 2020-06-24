@@ -14,6 +14,7 @@ ARG SONAR_TOKEN
 WORKDIR /src
 COPY HourRegistration/HourRegistrationAPI/HourRegistrationAPI/ ./HourRegistration/HourRegistrationAPI/HourRegistrationAPI/
 #COPY ["./HourRegistrationAPI/HourRegistrationAPI.csproj", "HourRegistrationAPI/"]
+COPY HourRegistrationTest ./HourRegistrationTest/
 
 RUN mkdir -p /usr/share/man/man1
 RUN apt-get update && apt-get install -y openjdk-11-jdk
@@ -28,12 +29,16 @@ WORKDIR "/src/HourRegistration/HourRegistrationAPI/HourRegistrationAPI"
 RUN dotnet sonarscanner begin \
   /k:"$SONAR_PROJECT_KEY" \
   /o:"$SONAR_OGRANIZAION_KEY" \
+  /d:sonar.exclusions="../../../HourRegistrationTest/" \
   /d:sonar.host.url="$SONAR_HOST_URL" \
   /d:sonar.login="$SONAR_TOKEN" \
   /d:sonar.verbose=true \
-  /d:sonar.cs.opencover.reportsPaths=/coverage.opencover.xml
+  /d:sonar.cs.opencover.reportsPaths="../../../HourRegistrationTest/TestResults/coverage.opencover.xml"
 RUN dotnet build "HourRegistrationAPI.csproj" -c Release -o /app/build
-RUN dotnet test "HourRegistrationAPI.csproj" -c Release --logger "trx;LogFileName=testresults.trx"
+RUN dotnet test "../../../HourRegistrationTest/HourRegistrationTest.csproj" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Exclude="[xunit*]\*" /p:CoverletOutput="./TestResults/" -c Release --logger "trx;LogFileName=testresults.trx"
+RUN ls "../../../HourRegistrationTest/"
+RUN ls "../../../HourRegistrationTest/TestResults/"
+
 RUN dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
 
 FROM build AS publish

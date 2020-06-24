@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <StartupObject>HourRegistrationAPI.HourRegistrationAPIProgram</StartupObject>
       <ProjectGuid>{22749b3a-7fbc-43fc-9d60-0d6e7292f757}</ProjectGuid>
-	  <SonarQubeTestProject>false</SonarQubeTestProject>
+      <SonarQubeTestProject>false</SonarQubeTestProject>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -18,16 +18,10 @@
 
   <ItemGroup>
     <PackageReference Include="CassandraCSharpDriver" Version="3.14.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets" Version="1.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
     <PackageReference Include="NSubstitute" Version="4.2.2" />
-    <PackageReference Include="NUnit" Version="3.12.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="RabbitMQ" Version="3.6.2" />
     <PackageReference Include="RabbitMQ.Client" Version="5.1.2" />
   </ItemGroup>
