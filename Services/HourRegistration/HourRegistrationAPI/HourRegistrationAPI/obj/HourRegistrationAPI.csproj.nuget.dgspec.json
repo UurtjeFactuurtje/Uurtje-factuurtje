@@ -47,10 +47,6 @@
               "target": "Package",
               "version": "[3.14.0, )"
             },
-            "Microsoft.NET.Test.Sdk": {
-              "target": "Package",
-              "version": "[16.6.1, )"
-            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.9.10, )"
@@ -66,16 +62,6 @@
             "NSubstitute": {
               "target": "Package",
               "version": "[4.2.2, )"
-            },
-            "NUnit": {
-              "target": "Package",
-              "version": "[3.12.0, )"
-            },
-            "NUnit3TestAdapter": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.16.1, )"
             },
             "RabbitMQ": {
               "target": "Package",
