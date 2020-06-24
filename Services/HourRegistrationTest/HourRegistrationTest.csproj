@@ -15,7 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\HourRegistrationAPI.csproj" />
+    <ProjectReference Include="..\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\HourRegistrationAPI.csproj">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>
