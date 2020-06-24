@@ -29,7 +29,7 @@ WORKDIR "/src/HourRegistration/HourRegistrationAPI/HourRegistrationAPI"
 RUN dotnet sonarscanner begin \
   /k:"$SONAR_PROJECT_KEY" \
   /o:"$SONAR_OGRANIZAION_KEY" \
-  /d:sonar.exclusions="../../../HourRegistrationTest/"
+  /d:sonar.exclusions="../../../HourRegistrationTest/" \
   /d:sonar.host.url="$SONAR_HOST_URL" \
   /d:sonar.login="$SONAR_TOKEN" \
   /d:sonar.verbose=true \
