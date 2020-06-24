@@ -13,7 +13,7 @@ ARG SONAR_TOKEN
 
 WORKDIR /src
 COPY HourRegistration/HourRegistrationAPI/HourRegistrationAPI/ ./HourRegistration/HourRegistrationAPI/HourRegistrationAPI/
-COPY HourRegistrationTest ./HourRegistrationTest/
+COPY HourRegistrationTest/ ./HourRegistration/HourRegistrationAPI/HourRegistrationAPI/
 #COPY ["./HourRegistrationAPI/HourRegistrationAPI.csproj", "HourRegistrationAPI/"]
 
 RUN mkdir -p /usr/share/man/man1
@@ -33,8 +33,9 @@ RUN dotnet sonarscanner begin \
   /d:sonar.login="$SONAR_TOKEN" \
   /d:sonar.cs.opencover.reportsPaths=/coverage.opencover.xml
 RUN dotnet build "HourRegistrationAPI.csproj" -c Release -o /app/build
-RUN ls ../../../
-RUN dotnet test "../../../HourRegistrationTest/HourRegistrationTest.csproj" -c Release --logger "trx;LogFileName=testresults.trx"
+
+#RUN ls ../../../
+RUN dotnet test "HourRegistrationTest.csproj" -c Release --logger "trx;LogFileName=testresults.trx"
 RUN dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
 
 FROM build AS publish
