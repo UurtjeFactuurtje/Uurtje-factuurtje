@@ -16,8 +16,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HourRegistration\HourRegistrationAPI\HourRegistrationAPI\HourRegistrationAPI.csproj">
-      <Private>false</Private>
+      <Private>true</Private>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
     </ProjectReference>
   </ItemGroup>
 
