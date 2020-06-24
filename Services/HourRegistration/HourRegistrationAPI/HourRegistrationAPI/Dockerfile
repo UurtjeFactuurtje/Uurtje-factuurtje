@@ -35,6 +35,7 @@ RUN dotnet sonarscanner begin \
 RUN dotnet build "HourRegistrationAPI.csproj" -c Release -o /app/build
 RUN ls ../../../
 RUN dotnet test "../../../HourRegistrationTest/HourRegistrationTest.csproj" -c Release --logger "trx;LogFileName=testresults.trx"
+WORKDIR "/src/HourRegistration/HourRegistrationAPI/HourRegistrationAPI"
 RUN dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
 
 FROM build AS publish
