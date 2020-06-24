@@ -29,11 +29,12 @@ WORKDIR "/src/HourRegistration/HourRegistrationAPI/HourRegistrationAPI"
 RUN dotnet sonarscanner begin \
   /k:"$SONAR_PROJECT_KEY" \
   /o:"$SONAR_OGRANIZAION_KEY" \
+  /d:sonar.exclusions="../../../HourRegistrationTest/" \
   /d:sonar.host.url="$SONAR_HOST_URL" \
   /d:sonar.login="$SONAR_TOKEN" \
   /d:sonar.verbose=true \
   /d:sonar.cs.opencover.reportsPaths="../../../HourRegistrationTest/TestResults/coverage.opencover.xml" \
-  /d:sonar.cs.nunit.reportsPaths"../../../HourRegistrationTest/TestResults/testresults.trx"
+  /d:sonar.cs.nunit.reportsPaths="../../../HourRegistrationTest/TestResults/testresults.trx"
 RUN dotnet build "HourRegistrationAPI.csproj" -c Release -o /app/build
 RUN dotnet test "../../../HourRegistrationTest/HourRegistrationTest.csproj" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Exclude="[xunit*]\*" /p:CoverletOutput="./TestResults/" -c Release --logger "trx;LogFileName=testresults.trx"
 RUN ls "../../../HourRegistrationTest/"
