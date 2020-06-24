@@ -13,7 +13,6 @@ ARG SONAR_TOKEN
 
 WORKDIR /src
 COPY HourRegistration/HourRegistrationAPI/HourRegistrationAPI/ ./HourRegistration/HourRegistrationAPI/HourRegistrationAPI/
-COPY HourRegistrationTest ./HourRegistrationTest/
 #COPY ["./HourRegistrationAPI/HourRegistrationAPI.csproj", "HourRegistrationAPI/"]
 
 RUN mkdir -p /usr/share/man/man1
