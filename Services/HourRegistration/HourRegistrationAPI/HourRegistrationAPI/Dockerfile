@@ -33,10 +33,9 @@ RUN dotnet sonarscanner begin \
   /d:sonar.host.url="$SONAR_HOST_URL" \
   /d:sonar.login="$SONAR_TOKEN" \
   /d:sonar.verbose=true \
-  /d:sonar.cs.opencover.reportsPaths="../../../HourRegistrationTest/TestResults/coverage.opencover.xml" \
-  /d:sonar.cs.nunit.reportsPaths="../../../HourRegistrationTest/TestResults/test-result.xml"
+  /d:sonar.cs.opencover.reportsPaths="../../../HourRegistrationTest/TestResults/coverage.opencover.xml"
 RUN dotnet build "HourRegistrationAPI.csproj" -c Release -o /app/build
-RUN dotnet test "../../../HourRegistrationTest/HourRegistrationTest.csproj" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Exclude="[xunit*]\*" /p:CoverletOutput="./TestResults/" -c Release --logger "nunit;LogFileName=test-result.xml"
+RUN dotnet test "../../../HourRegistrationTest/HourRegistrationTest.csproj" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Exclude="[xunit*]\*" /p:CoverletOutput="./TestResults/" -c Release --logger "trx;LogFileName=testresults.trx"
 RUN ls "../../../HourRegistrationTest/"
 RUN ls "../../../HourRegistrationTest/TestResults/"
 
