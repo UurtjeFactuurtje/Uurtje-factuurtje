@@ -34,9 +34,8 @@ RUN dotnet sonarscanner begin \
   /d:sonar.verbose=true \
   /d:sonar.cs.opencover.reportsPaths=/coverage.opencover.xml
 RUN dotnet build "HourRegistrationAPI.csproj" -c Release -o /app/build
-RUN dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Exclude="[xunit*]\*" /p:CoverletOutput="./TestResults/" -c Release --logger "trx;LogFileName=testresults.trx"
+RUN dotnet test "../../../HourRegistrationTest/HourRegistrationTest.csproj" /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Exclude="[xunit*]\*" /p:CoverletOutput="./TestResults/" -c Release --logger "trx;LogFileName=testresults.trx"
 #RUN dotnet test /p:CollectCoverage=true "../../../HourRegistrationTest/HourRegistrationTest.csproj" -c Release --logger "trx;LogFileName=testresults.trx"
-RUN coverlet 
 RUN dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
 
 FROM build AS publish
