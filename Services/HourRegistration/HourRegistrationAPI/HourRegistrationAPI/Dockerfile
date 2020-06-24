@@ -14,6 +14,7 @@ ARG SONAR_TOKEN
 WORKDIR /src
 COPY HourRegistration/HourRegistrationAPI/HourRegistrationAPI/ ./HourRegistration/HourRegistrationAPI/HourRegistrationAPI/
 #COPY ["./HourRegistrationAPI/HourRegistrationAPI.csproj", "HourRegistrationAPI/"]
+COPY HourRegistrationTest ./HourRegistrationTest/
 
 RUN mkdir -p /usr/share/man/man1
 RUN apt-get update && apt-get install -y openjdk-11-jdk
@@ -33,7 +34,7 @@ RUN dotnet sonarscanner begin \
   /d:sonar.verbose=true \
   /d:sonar.cs.opencover.reportsPaths=/coverage.opencover.xml
 RUN dotnet build "HourRegistrationAPI.csproj" -c Release -o /app/build
-RUN dotnet test "HourRegistrationAPI.csproj" /p:CollectCoverage=true -c Release --logger "trx;LogFileName=testresults.trx"
+RUN dotnet test /p:CollectCoverage=true "../../../HourRegistrationTest/HourRegistrationTest.csproj" -c Release --logger "trx;LogFileName=testresults.trx"
 RUN dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
 
 FROM build AS publish
