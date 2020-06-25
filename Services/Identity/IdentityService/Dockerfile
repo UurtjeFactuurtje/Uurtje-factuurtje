@@ -31,11 +31,11 @@ RUN dotnet sonarscanner begin \
   /d:sonar.host.url="$SONAR_HOST_URL" \
   /d:sonar.login="$SONAR_TOKEN" \
   /d:sonar.cs.opencover.reportsPaths=/coverage.opencover.xml
-RUN dotnet build "IdentityService.csproj" -c Release -o /app/build
+RUN dotnet build "IdentityService/IdentityService.csproj" -c Release -o /app/build
 RUN dotnet sonarscanner end /d:sonar.login="$SONAR_TOKEN"
 
 FROM build AS publish
-RUN dotnet publish "IdentityService.csproj" -c Release -o /app/publish
+RUN dotnet publish "IdentityService/IdentityService.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
