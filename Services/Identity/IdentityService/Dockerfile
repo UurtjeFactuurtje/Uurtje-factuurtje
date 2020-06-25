@@ -13,7 +13,7 @@ ARG SONAR_HOST_URL=https://sonarcloud.io
 ARG SONAR_TOKEN
 
 WORKDIR /src
-COPY . .
+COPY ./Identity .
 
 #RUN mkdir -p /usr/share/man/man1
 #RUN apt-get update && apt-get install -y openjdk-11-jdk
